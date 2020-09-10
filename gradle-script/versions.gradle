@@ -1,0 +1,11 @@
+ext {
+    // Plugins
+    vAndroidPlugin = '4.0.1'
+    vKotlin = '1.3.61'
+
+    // Android
+    vAndroidCompileSdk = 29
+    vAndroidBuildTools = '30.0.2'
+    vAndroidMinSdk = 23
+    vAndroidTargetSdk = 29
+}
