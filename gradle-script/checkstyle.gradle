@@ -1,0 +1,30 @@
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion = "$vCheckstylePlugin"
+}
+
+task checkstyleCore(type: Checkstyle) {
+    configFile file("${project.rootDir}/config/checkstyle-config-core.xml")
+    classpath = files()
+    source "${project.projectDir}"
+    include '**/*.java'
+    exclude '**/androidTest/**'
+    exclude '**/gen/**'
+    exclude '**/build/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    exclude '**/assets/**'
+    exclude '*.xml'
+}
+
+task checkstyleDefault(type: Checkstyle) {
+    configFile file("${project.rootDir}/config/checkstyle-config-default.xml")
+    showViolations = true
+    source "src/main/java"
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    classpath = files()
+}

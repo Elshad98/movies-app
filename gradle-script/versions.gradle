@@ -1,5 +1,6 @@
 ext {
     // Plugins
+    vCheckstylePlugin = '8.4'
     vAndroidPlugin = '4.0.1'
     vKotlin = '1.3.61'
 

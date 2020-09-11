@@ -13,6 +13,7 @@ buildscript {
 }
 
 allprojects {
+    apply from: "${project.rootDir}/gradle-script/versions.gradle"
     repositories {
         google()
         jcenter()

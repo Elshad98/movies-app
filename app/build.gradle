@@ -1,7 +1,9 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "${project.rootDir}/gradle-script/checkstyle.gradle"
+
+preBuild.dependsOn('checkstyleDefault')
+check.dependsOn('checkstyleDefault')
 
 android {
     compileSdkVersion vAndroidCompileSdk
