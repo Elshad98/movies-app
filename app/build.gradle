@@ -1,9 +1,26 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+        mavenCentral()
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$vKotlin"
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'kotlin-kapt'
 apply from: "${project.rootDir}/gradle-script/checkstyle.gradle"
 
 preBuild.dependsOn('checkstyleDefault')
 check.dependsOn('checkstyleDefault')
+assemble.dependsOn('lint')
 
 android {
     compileSdkVersion vAndroidCompileSdk
@@ -44,4 +61,11 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$vKotlinxSerialization"
+    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$vSpek2"
+    testImplementation "org.spekframework.spek2:spek-runner-junit5:$vSpek2"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$vKotlin"
+    testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$vKotlin"
 }

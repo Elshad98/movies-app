@@ -1,0 +1,20 @@
+allprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    ktlint {
+        enableExperimentalRules.set(true)
+    }
+
+    def ktlintExcludedModules = [
+            'exoplayer-extension-ffmpeg',
+    ]
+
+    project.afterEvaluate {
+        if (!ktlintExcludedModules.contains(project.name)) {
+            if (project.tasks.findByName('preBuild')) {
+                def preBuildTask = project.tasks.findByName('preBuild')
+                preBuildTask.dependsOn('ktlintCheck')
+            }
+        }
+    }
+}

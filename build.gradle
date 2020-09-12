@@ -5,18 +5,27 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$vAndroidPlugin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$vKotlin"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:$vKtlintPlugin"
     }
 }
+
+apply from: "${project.rootDir}/gradle-script/ktlint.gradle"
 
 allprojects {
     apply from: "${project.rootDir}/gradle-script/versions.gradle"
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
 

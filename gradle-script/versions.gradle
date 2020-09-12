@@ -2,6 +2,7 @@ ext {
     // Plugins
     vCheckstylePlugin = '8.4'
     vAndroidPlugin = '4.0.1'
+    vKtlintPlugin = '9.2.1'
     vKotlin = '1.3.61'
 
     // Android
@@ -9,4 +10,10 @@ ext {
     vAndroidBuildTools = '30.0.2'
     vAndroidMinSdk = 23
     vAndroidTargetSdk = 29
+
+    // Libs
+    vKotlinxSerialization = '0.20.0'
+
+    // Test
+    vSpek2 = '2.0.2'
 }
