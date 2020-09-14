@@ -17,6 +17,7 @@ buildscript {
 }
 
 apply from: "${project.rootDir}/gradle-script/ktlint.gradle"
+apply from: "${project.rootDir}/gradle-script/android-global-config.gradle"
 
 allprojects {
     apply from: "${project.rootDir}/gradle-script/versions.gradle"

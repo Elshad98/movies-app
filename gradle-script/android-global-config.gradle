@@ -1,0 +1,23 @@
+apply from: "${project.rootDir}/gradle-script/versions.gradle"
+
+allprojects {
+    def androidPluginConfig = {
+        android {
+            compileSdkVersion vAndroidCompileSdk
+            buildToolsVersion vAndroidBuildTools
+
+            defaultConfig {
+                minSdkVersion vAndroidMinSdk
+                targetSdkVersion vAndroidTargetSdk
+            }
+
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+        }
+    }
+
+    plugins.withId("com.android.application", androidPluginConfig)
+    plugins.withId("com.android.library", androidPluginConfig)
+}
