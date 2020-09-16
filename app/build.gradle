@@ -46,18 +46,33 @@ android {
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$vKotlin"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    implementation "androidx.core:core-ktx:$vCoreKtx"
+    implementation "androidx.appcompat:appcompat:$vAndroidxAppCompat"
+    implementation "androidx.constraintlayout:constraintlayout:$vAndroidxConstraintLayout"
+    implementation "androidx.cardview:cardview:$vCardview"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$vKotlinxSerialization"
-    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$vSpek2"
-    testImplementation "org.spekframework.spek2:spek-runner-junit5:$vSpek2"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$vKotlin"
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$vKotlin"
+    // Test
+    testImplementation "junit:junit:$vJunit"
+    androidTestImplementation "androidx.test.ext:junit:$vAndroidxJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$vAndroidxEspresso"
+    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$vSpek2"
+    testImplementation "org.spekframework.spek2:spek-runner-junit5:$vSpek2"
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle-extensions:$vLifecycle"
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$vGlide"
+    // Recyclerview
+    implementation "androidx.recyclerview:recyclerview:$vAndroidxRecyclerView"
+    // Gson
+    implementation "com.google.code.gson:gson:$vGson"
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$vRxJava2"
+    implementation "io.reactivex.rxjava2:rxandroid:$vRxAndroid2"
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$vRetrofit2"
+    implementation "com.squareup.retrofit2:converter-gson:$vRetrofit2"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$vRetrofit2"
 }

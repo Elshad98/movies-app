@@ -3,17 +3,32 @@ ext {
     vCheckstylePlugin = '8.4'
     vAndroidPlugin = '4.0.1'
     vKtlintPlugin = '9.2.1'
-    vKotlin = '1.3.61'
+    vKotlin = '1.3.72'
 
     // Android
     vAndroidCompileSdk = 29
     vAndroidBuildTools = '30.0.2'
-    vAndroidMinSdk = 23
+    vAndroidMinSdk = 21
     vAndroidTargetSdk = 29
 
     // Libs
     vKotlinxSerialization = '0.20.0'
+    vRxJava2 = '2.2.10'
+    vRxAndroid2 = '2.1.1'
+    vGson = '2.8.6'
+    vRxJava2 = '2.2.10'
+    vRetrofit2 = '2.6.0'
+    vLifecycle = '2.0.0'
+    vGlide = '4.8.0'
+    vCoreKtx = '1.3.1'
+    vCardview = '1.0.0'
+    vAndroidxRecyclerView = '1.1.0'
+    vAndroidxAppCompat = '1.2.0'
+    vAndroidxConstraintLayout = '2.0.1'
 
     // Test
     vSpek2 = '2.0.2'
+    vJunit = '4.13'
+    vAndroidxJunit = '1.1.2'
+    vAndroidxEspresso = '3.3.0'
 }
