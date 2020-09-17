@@ -52,6 +52,7 @@ dependencies {
     implementation "androidx.cardview:cardview:$vCardview"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$vKotlinxSerialization"
+    implementation 'com.google.android.material:material:1.2.1'
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$vKotlin"
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$vKotlin"
     // Test
