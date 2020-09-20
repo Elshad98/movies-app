@@ -23,7 +23,7 @@ object TheMovieDBClient {
                 .addQueryParameter("api_key", API_KEY)
                 .build()
 
-            var request = chain.request()
+            val request = chain.request()
                 .newBuilder()
                 .url(url)
                 .build()
