@@ -25,6 +25,7 @@ ext {
     vAndroidxRecyclerView = '1.1.0'
     vAndroidxAppCompat = '1.2.0'
     vAndroidxConstraintLayout = '2.0.1'
+    vPaging = '2.1.2'
 
     // Test
     vSpek2 = '2.0.2'

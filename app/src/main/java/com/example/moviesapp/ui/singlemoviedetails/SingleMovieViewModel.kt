@@ -1,4 +1,4 @@
-package com.example.moviesapp.single_movie_details
+package com.example.moviesapp.ui.singlemoviedetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +21,7 @@ class SingleMovieViewModel(
         movieRepository.getMovieNetworkState()
     }
 
-    override fun onClread() {
+    override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()
     }

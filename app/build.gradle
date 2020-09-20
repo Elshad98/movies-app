@@ -15,6 +15,7 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlinx-serialization'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: "${project.rootDir}/gradle-script/checkstyle.gradle"
 
@@ -41,6 +42,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -61,10 +66,10 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$vAndroidxEspresso"
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:$vSpek2"
     testImplementation "org.spekframework.spek2:spek-runner-junit5:$vSpek2"
-    // ViewModel and LiveData
-    implementation "androidx.lifecycle-extensions:$vLifecycle"
     // Glide
     implementation "com.github.bumptech.glide:glide:$vGlide"
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:$vPaging"
     // Recyclerview
     implementation "androidx.recyclerview:recyclerview:$vAndroidxRecyclerView"
     // Gson
