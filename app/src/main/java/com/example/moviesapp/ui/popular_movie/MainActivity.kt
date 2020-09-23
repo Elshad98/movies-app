@@ -1,11 +1,10 @@
-package com.example.moviesapp.ui
+package com.example.moviesapp.ui.popular_movie
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.moviesapp.R
 import com.example.moviesapp.ui.singlemoviedetails.SingleMovie
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
