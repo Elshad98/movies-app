@@ -1,4 +1,4 @@
-package com.example.moviesapp.ui.popular_movie
+package com.example.moviesapp.ui.popularmovie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations

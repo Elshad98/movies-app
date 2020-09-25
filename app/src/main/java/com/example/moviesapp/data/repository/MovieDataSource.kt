@@ -75,7 +75,5 @@ class MovieDataSource(
         params: LoadParams<Int>,
         callback: LoadCallback<Int, MovieResponse.Movie>
     ) {
-
     }
-
 }

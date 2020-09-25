@@ -1,4 +1,4 @@
-package com.example.moviesapp.ui.popular_movie
+package com.example.moviesapp.ui.popularmovie
 
 import android.content.Context
 import android.content.Intent
@@ -23,8 +23,8 @@ class PopularMoviePagedListAdapter(
 
     companion object {
 
-        private const val MOVIE_VIEW_TYPE = 1
-        private const val NETWORK_VIEW_TYPE = 2
+        const val MOVIE_VIEW_TYPE = 1
+        const val NETWORK_VIEW_TYPE = 2
     }
 
     private var networkState: NetworkState? = null
