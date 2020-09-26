@@ -29,13 +29,7 @@ class MainActivity : AppCompatActivity() {
         movieRepository = MoviePagedListRepository(apiService)
         viewModel = getViewModel()
 
-        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-
-            override fun getSpanSize(position: Int): Int {
-                val viewType = movieAdapter.getItemViewType(position)
-                return if (viewType == PopularMoviePagedListAdapter.MOVIE_VIEW_TYPE) 1 else 3
-            }
-        }
+        gridLayoutManager.spanSizeLookup = spanSizeLookup
 
         rv_movie_list.apply {
             layoutManager = gridLayoutManager
@@ -45,6 +39,14 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.moviePagedList.observe(this, Observer { movieAdapter.submitList(it) })
         viewModel.networkState.observe(this, stateObserver)
+    }
+
+    private val spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+
+        override fun getSpanSize(position: Int): Int {
+            val viewType = movieAdapter.getItemViewType(position)
+            return if (viewType == PopularMoviePagedListAdapter.MOVIE_VIEW_TYPE) 1 else 3
+        }
     }
 
     private val stateObserver = Observer<NetworkState> { networkState ->
