@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Error Message" />
+        android:fontFamily="@font/roboto_regular" />
 
     <ProgressBar
         android:id="@+id/progress_bar_item"

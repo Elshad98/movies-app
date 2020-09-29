@@ -31,8 +31,8 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
+            android:fontFamily="@font/roboto_regular"
             android:maxLines="1"
-            android:text="movie"
             android:textSize="12sp" />
 
         <TextView
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto_regular"
             android:maxLength="4"
-            android:text="2019"
             android:textSize="12sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

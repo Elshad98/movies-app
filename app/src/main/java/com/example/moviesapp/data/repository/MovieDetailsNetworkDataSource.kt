@@ -1,6 +1,5 @@
 package com.example.moviesapp.data.repository
 
-import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +15,7 @@ class MovieDetailsNetworkDataSource(
 
     companion object {
 
-        private const val TAG = "MovieDetailsNetworkDataSource"
+        private const val TAG = "MovieDetailsNetworkDS"
     }
 
     private val _networkState = MutableLiveData<NetworkState>()
@@ -27,7 +26,6 @@ class MovieDetailsNetworkDataSource(
     val downloadedMovieDetailsResponse: LiveData<MovieDetails>
         get() = _downloadedMovieDetailsResponse
 
-    @SuppressLint("LongLogTag")
     fun fetchMovieDetails(movieId: Int) {
         _networkState.postValue(NetworkState.LOADING)
 

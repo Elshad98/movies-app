@@ -22,7 +22,7 @@ class MoviePagedListRepository(
     fun fetchLiveMoviePageList(compositeDisposable: CompositeDisposable): LiveData<PagedList<Movie>> {
         movieDataSourceFactory = MovieDataSourceFactory(apiService, compositeDisposable)
 
-        var config = PagedList.Config
+        val config = PagedList.Config
             .Builder()
             .setEnablePlaceholders(false)
             .setPageSize(POST_PER_PAGE)
@@ -33,7 +33,7 @@ class MoviePagedListRepository(
     }
 
     fun getNetworkState(): LiveData<NetworkState> {
-        return Transformations.switchMap<MovieDataSource, NetworkState>(
+        return Transformations.switchMap(
             movieDataSourceFactory.movieListDataSource,
             MovieDataSource::networkState
         )

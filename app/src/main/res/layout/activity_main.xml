@@ -21,8 +21,10 @@
             android:id="@+id/txt_error_popular"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
-            android:text="Connection problem!"
+            android:text="@string/connection_problem"
+            android:textSize="16sp"
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -33,5 +35,4 @@
             android:scrollbars="vertical" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.example.moviesapp.ui.singlemoviedetails
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -32,17 +32,14 @@ class SingleMovie : AppCompatActivity() {
         movieRepository = MovieDetailsRepository(apiService)
 
         viewModel = getViewModel(movieId)
-
         viewModel.movieDetails.observe(this, Observer { bindUI(it) })
+        viewModel.networkState.observe(this, stateObserve)
+    }
 
-        viewModel.networkState.observe(
-            this,
-            Observer {
-                progress_bar.visibility =
-                    if (it == NetworkState.LOADING) View.VISIBLE else View.GONE
-                txt_error.visibility = if (it == NetworkState.ERROR) View.VISIBLE else View.GONE
-            }
-        )
+    private val stateObserve = Observer<NetworkState> { networkState ->
+        progress_bar.visibility =
+            if (networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
+        txt_error.visibility = if (networkState == NetworkState.ERROR) View.VISIBLE else View.GONE
     }
 
     private fun bindUI(movieDetails: MovieDetails) {
@@ -54,10 +51,11 @@ class SingleMovie : AppCompatActivity() {
         movie_overview.text = movieDetails.overview
 
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale.US)
+        val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
+
         movie_budget.text = formatCurrency.format(movieDetails.budget)
         movie_revenue.text = formatCurrency.format(movieDetails.revenue)
 
-        val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
         Glide.with(this)
             .load(moviePosterURL)
             .into(iv_movie_poster)
@@ -68,7 +66,6 @@ class SingleMovie : AppCompatActivity() {
             this,
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    @Suppress("UNCHECKED_CAST")
                     return SingleMovieViewModel(movieRepository, movieId) as T
                 }
             }

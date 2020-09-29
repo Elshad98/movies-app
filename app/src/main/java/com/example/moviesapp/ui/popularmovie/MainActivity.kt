@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.moviePagedList.observe(this, Observer { movieAdapter.submitList(it) })
-        viewModel.networkState.observe(this, stateObserver)
+        viewModel.networkState.observe(this, stateObserve)
     }
 
     private val spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val stateObserver = Observer<NetworkState> { networkState ->
+    private val stateObserve = Observer<NetworkState> { networkState ->
         progress_bar_popular.visibility =
             if (viewModel.listIsEmpty() && networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
         txt_error_popular.visibility =
@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
             this,
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    @Suppress("UNCHECKED_CAST")
                     return MainActivityViewModel(movieRepository) as T
                 }
             }
