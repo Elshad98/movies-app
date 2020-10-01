@@ -81,4 +81,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$vRetrofit2"
     implementation "com.squareup.retrofit2:converter-gson:$vRetrofit2"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$vRetrofit2"
+    // Toothpick
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$vToothpick"
+    implementation "com.github.stephanenicolas.toothpick:smoothie-androidx:$vToothpick"
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:$vToothpick"
 }
