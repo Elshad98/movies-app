@@ -2,25 +2,21 @@ package com.example.moviesapp.ui.singlemoviedetails
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.moviesapp.App
 import com.example.moviesapp.R
-import com.example.moviesapp.data.api.POSTER_BASE_URL
 import com.example.moviesapp.data.api.TheMovieDBClient
-import com.example.moviesapp.data.api.TheMovieDBInterface
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
+import com.example.moviesapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import java.text.NumberFormat
 import java.util.*
 
-class SingleMovie : AppCompatActivity() {
+class SingleMovieActivity : BaseActivity() {
 
     private lateinit var viewModel: SingleMovieViewModel
-    private lateinit var movieRepository: MovieDetailsRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +24,9 @@ class SingleMovie : AppCompatActivity() {
 
         val movieId: Int = intent.getIntExtra("id", 1)
 
-        val apiService: TheMovieDBInterface = TheMovieDBClient.getClient()
-        movieRepository = MovieDetailsRepository(apiService)
-
-        viewModel = getViewModel(movieId)
-        viewModel.movieDetails.observe(this, Observer { bindUI(it) })
-        viewModel.networkState.observe(this, stateObserve)
+        viewModel = viewModel(SingleMovieViewModel::class.java, App.scope())
+        viewModel.getMovieDetails(movieId).observe(this, Observer { bindUI(it) })
+        viewModel.getNetworkState().observe(this, stateObserve)
     }
 
     private val stateObserve = Observer<NetworkState> { networkState ->
@@ -51,7 +44,7 @@ class SingleMovie : AppCompatActivity() {
         movie_overview.text = movieDetails.overview
 
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale.US)
-        val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
+        val moviePosterURL = TheMovieDBClient.POSTER_BASE_URL + movieDetails.posterPath
 
         movie_budget.text = formatCurrency.format(movieDetails.budget)
         movie_revenue.text = formatCurrency.format(movieDetails.revenue)
@@ -59,16 +52,5 @@ class SingleMovie : AppCompatActivity() {
         Glide.with(this)
             .load(moviePosterURL)
             .into(iv_movie_poster)
-    }
-
-    private fun getViewModel(movieId: Int): SingleMovieViewModel {
-        return ViewModelProvider(
-            this,
-            object : ViewModelProvider.Factory {
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    return SingleMovieViewModel(movieRepository, movieId) as T
-                }
-            }
-        )[SingleMovieViewModel::class.java]
     }
 }

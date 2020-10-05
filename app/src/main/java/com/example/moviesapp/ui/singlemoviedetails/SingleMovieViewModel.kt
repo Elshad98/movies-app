@@ -5,20 +5,20 @@ import androidx.lifecycle.ViewModel
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class SingleMovieViewModel(
-    private val movieRepository: MovieDetailsRepository,
-    private val movieId: Int
+class SingleMovieViewModel @Inject constructor(
+    private val movieRepository: MovieDetailsRepository
 ) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    val movieDetails: LiveData<MovieDetails> by lazy {
-        movieRepository.fetchSingleMovieDetails(compositeDisposable, movieId)
+    fun getMovieDetails(movieId: Int): LiveData<MovieDetails> {
+        return movieRepository.fetchSingleMovieDetails(compositeDisposable, movieId)
     }
 
-    val networkState: LiveData<NetworkState> by lazy {
-        movieRepository.getMovieNetworkState()
+    fun getNetworkState(): LiveData<NetworkState> {
+        return movieRepository.getMovieNetworkState()
     }
 
     override fun onCleared() {

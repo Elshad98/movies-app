@@ -3,7 +3,7 @@ package com.example.moviesapp.data.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.example.moviesapp.data.api.FIRST_PAGE
+import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.api.TheMovieDBInterface
 import com.example.moviesapp.data.vo.MovieResponse
 import io.reactivex.disposables.CompositeDisposable
@@ -19,7 +19,7 @@ class MovieDataSource(
         private const val TAG = "MovieDataSource"
     }
 
-    private var page = FIRST_PAGE
+    private var page = TheMovieDBClient.FIRST_PAGE
 
     val networkState: MutableLiveData<NetworkState> = MutableLiveData()
 

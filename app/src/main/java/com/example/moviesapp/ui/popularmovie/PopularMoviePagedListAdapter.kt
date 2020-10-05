@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviesapp.R
-import com.example.moviesapp.data.api.POSTER_BASE_URL
+import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieResponse.Movie
-import com.example.moviesapp.ui.singlemoviedetails.SingleMovie
+import com.example.moviesapp.ui.singlemoviedetails.SingleMovieActivity
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*
 
@@ -55,11 +55,7 @@ class PopularMoviePagedListAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (hasExtraRow() && position == itemCount - 1) {
-            NETWORK_VIEW_TYPE
-        } else {
-            MOVIE_VIEW_TYPE
-        }
+        return if (hasExtraRow() && position == itemCount - 1) NETWORK_VIEW_TYPE else MOVIE_VIEW_TYPE
     }
 
     private fun hasExtraRow(): Boolean {
@@ -100,13 +96,13 @@ class PopularMoviePagedListAdapter(
             itemView.cv_movie_title.text = movie?.title
             itemView.cv_movie_release_date.text = movie?.releaseDate
 
-            val moviePosterURL = POSTER_BASE_URL + movie?.posterPath
+            val moviePosterURL = TheMovieDBClient.POSTER_BASE_URL + movie?.posterPath
             Glide.with(itemView.context)
                 .load(moviePosterURL)
                 .into(itemView.cv_iv_movie_poster)
 
             itemView.setOnClickListener {
-                val intent = Intent(context, SingleMovie::class.java)
+                val intent = Intent(context, SingleMovieActivity::class.java)
                 intent.putExtra("id", movie?.id)
                 context.startActivity(intent)
             }
@@ -117,11 +113,7 @@ class PopularMoviePagedListAdapter(
 
         fun bind(networkState: NetworkState?) {
             itemView.progress_bar_item.visibility =
-                if (networkState != null && networkState == NetworkState.LOADING) {
-                    View.VISIBLE
-                } else {
-                    View.GONE
-                }
+                if (networkState != null && networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
 
             if (networkState !== null && networkState == NetworkState.ERROR) {
                 itemView.error_msg_item.visibility = View.VISIBLE

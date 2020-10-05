@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.example.moviesapp.data.api.POST_PER_PAGE
-import com.example.moviesapp.data.api.TheMovieDBInterface
+import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.repository.MovieDataSource
 import com.example.moviesapp.data.repository.MovieDataSourceFactory
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieResponse.Movie
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MoviePagedListRepository(
-    private val apiService: TheMovieDBInterface
-) {
+class MoviePagedListRepository @Inject constructor(theMovieDBClient: TheMovieDBClient) {
 
+    private val apiService = theMovieDBClient.getClient()
     lateinit var moviePagedList: LiveData<PagedList<Movie>>
     lateinit var movieDataSourceFactory: MovieDataSourceFactory
 
@@ -25,7 +24,7 @@ class MoviePagedListRepository(
         val config = PagedList.Config
             .Builder()
             .setEnablePlaceholders(false)
-            .setPageSize(POST_PER_PAGE)
+            .setPageSize(TheMovieDBClient.POST_PER_PAGE)
             .build()
 
         moviePagedList = LivePagedListBuilder(movieDataSourceFactory, config).build()

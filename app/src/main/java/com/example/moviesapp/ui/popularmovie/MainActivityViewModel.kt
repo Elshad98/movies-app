@@ -6,8 +6,9 @@ import androidx.paging.PagedList
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieResponse.Movie
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MainActivityViewModel(
+class MainActivityViewModel @Inject constructor(
     private val movieRepository: MoviePagedListRepository
 ) : ViewModel() {
 

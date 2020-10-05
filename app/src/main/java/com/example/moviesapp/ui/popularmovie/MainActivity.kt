@@ -2,33 +2,24 @@ package com.example.moviesapp.ui.popularmovie
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.moviesapp.App
 import com.example.moviesapp.R
-import com.example.moviesapp.data.api.TheMovieDBClient
-import com.example.moviesapp.data.api.TheMovieDBInterface
 import com.example.moviesapp.data.repository.NetworkState
+import com.example.moviesapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var viewModel: MainActivityViewModel
     private val movieAdapter = PopularMoviePagedListAdapter(this)
-    lateinit var movieRepository: MoviePagedListRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val gridLayoutManager = GridLayoutManager(this, 3)
-        val apiService: TheMovieDBInterface = TheMovieDBClient.getClient()
-
-        movieRepository = MoviePagedListRepository(apiService)
-        viewModel = getViewModel()
-
         gridLayoutManager.spanSizeLookup = spanSizeLookup
 
         rv_movie_list.apply {
@@ -37,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             adapter = movieAdapter
         }
 
+        viewModel = viewModel(MainActivityViewModel::class.java, App.scope())
         viewModel.moviePagedList.observe(this, Observer { movieAdapter.submitList(it) })
         viewModel.networkState.observe(this, stateObserve)
     }
@@ -58,16 +50,5 @@ class MainActivity : AppCompatActivity() {
         if (!viewModel.listIsEmpty()) {
             movieAdapter.setNetworkState(networkState)
         }
-    }
-
-    private fun getViewModel(): MainActivityViewModel {
-        return ViewModelProvider(
-            this,
-            object : ViewModelProvider.Factory {
-                override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    return MainActivityViewModel(movieRepository) as T
-                }
-            }
-        )[MainActivityViewModel::class.java]
     }
 }

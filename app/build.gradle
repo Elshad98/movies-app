@@ -84,5 +84,5 @@ dependencies {
     // Toothpick
     implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$vToothpick"
     implementation "com.github.stephanenicolas.toothpick:smoothie-androidx:$vToothpick"
-    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:$vToothpick"
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$vToothpick"
 }

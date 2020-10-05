@@ -6,17 +6,21 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-private const val TIMEOUT = 60L
-private const val API_KEY = "537617866b341480a7bea2f1a8a6c42f"
+class TheMovieDBClient @Inject constructor() {
 
-const val BASE_URL = "https://api.themoviedb.org/3/"
-const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
+    companion object {
 
-const val FIRST_PAGE = 1
-const val POST_PER_PAGE = 20
+        private const val TIMEOUT = 60L
+        private const val API_KEY = "537617866b341480a7bea2f1a8a6c42f"
 
-object TheMovieDBClient {
+        const val BASE_URL = "https://api.themoviedb.org/3/"
+        const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
+
+        const val FIRST_PAGE = 1
+        const val POST_PER_PAGE = 20
+    }
 
     fun getClient(): TheMovieDBInterface {
         val requestInterceptor = Interceptor { chain ->
@@ -32,7 +36,7 @@ object TheMovieDBClient {
                 .url(url)
                 .build()
 
-            return@Interceptor chain.proceed(request)
+            chain.proceed(request)
         }
 
         val okHttpClient = OkHttpClient.Builder()
