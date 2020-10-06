@@ -94,7 +94,6 @@ class PopularMoviePagedListAdapter(
 
         fun bind(movie: Movie?, context: Context) {
             itemView.cv_movie_title.text = movie?.title
-            itemView.cv_movie_release_date.text = movie?.releaseDate
 
             val moviePosterURL = TheMovieDBClient.POSTER_BASE_URL + movie?.posterPath
             Glide.with(itemView.context)
