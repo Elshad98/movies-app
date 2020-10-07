@@ -35,7 +35,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:ellipsize="end"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/montserrat_medium"
             android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="16sp" />

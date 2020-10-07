@@ -23,7 +23,7 @@
             android:id="@+id/txt_error_popular"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:text="@string/connection_problem"
             android:textSize="16sp"
