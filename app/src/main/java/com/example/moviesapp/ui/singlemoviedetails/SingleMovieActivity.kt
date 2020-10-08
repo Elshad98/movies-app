@@ -5,8 +5,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.moviesapp.App
+import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
-import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
 import com.example.moviesapp.ui.base.BaseActivity
@@ -44,7 +44,7 @@ class SingleMovieActivity : BaseActivity() {
         movie_overview.text = movieDetails.overview
 
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale.US)
-        val moviePosterURL = TheMovieDBClient.POSTER_BASE_URL + movieDetails.posterPath
+        val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
 
         movie_budget.text = formatCurrency.format(movieDetails.budget)
         movie_revenue.text = formatCurrency.format(movieDetails.revenue)

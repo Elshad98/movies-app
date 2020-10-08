@@ -13,13 +13,8 @@ class TheMovieDBClient @Inject constructor() {
     companion object {
 
         private const val TIMEOUT = 60L
+        private const val BASE_URL = "https://api.themoviedb.org/3/"
         private const val API_KEY = "537617866b341480a7bea2f1a8a6c42f"
-
-        const val BASE_URL = "https://api.themoviedb.org/3/"
-        const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
-
-        const val FIRST_PAGE = 1
-        const val POST_PER_PAGE = 20
     }
 
     fun getClient(): TheMovieDBInterface {

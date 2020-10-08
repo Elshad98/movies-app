@@ -3,29 +3,29 @@ package com.example.moviesapp.data.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.api.TheMovieDBInterface
-import com.example.moviesapp.data.vo.MovieResponse
+import com.example.moviesapp.data.vo.Movie
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class MovieDataSource(
     private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
-) : PageKeyedDataSource<Int, MovieResponse.Movie>() {
+) : PageKeyedDataSource<Int, Movie>() {
 
     companion object {
 
         private const val TAG = "MovieDataSource"
+        private const val FIRST_PAGE = 1
     }
 
-    private var page = TheMovieDBClient.FIRST_PAGE
+    private var page = FIRST_PAGE
 
     val networkState: MutableLiveData<NetworkState> = MutableLiveData()
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
-        callback: LoadInitialCallback<Int, MovieResponse.Movie>
+        callback: LoadInitialCallback<Int, Movie>
     ) {
         networkState.postValue(NetworkState.LOADING)
 
@@ -47,7 +47,7 @@ class MovieDataSource(
 
     override fun loadAfter(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, MovieResponse.Movie>
+        callback: LoadCallback<Int, Movie>
     ) {
         networkState.postValue(NetworkState.LOADING)
 
@@ -73,7 +73,7 @@ class MovieDataSource(
 
     override fun loadBefore(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, MovieResponse.Movie>
+        callback: LoadCallback<Int, Movie>
     ) {
     }
 }
