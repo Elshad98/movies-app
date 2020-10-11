@@ -9,7 +9,6 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
@@ -99,7 +98,6 @@ class PopularMoviePagedListAdapter(
             val moviePosterURL = POSTER_BASE_URL + movie?.posterPath
             Glide.with(itemView.context)
                 .load(moviePosterURL)
-                .apply(RequestOptions.placeholderOf(R.drawable.poster_placeholder))
                 .into(itemView.cv_iv_movie_poster)
 
             itemView.setOnClickListener {
