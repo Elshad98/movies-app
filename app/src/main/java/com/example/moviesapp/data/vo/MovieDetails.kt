@@ -7,7 +7,7 @@ data class MovieDetails(
     @SerializedName("backdrop_path")
     val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: BelongsToCollection,
+    val belongsToCollection: Any,
     val budget: Int,
     val genres: List<Genre>,
     val homepage: String,
@@ -28,7 +28,9 @@ data class MovieDetails(
     val productionCountries: List<ProductionCountry>,
     @SerializedName("release_date")
     val releaseDate: String,
-    val revenue: Long,
+    @SerializedName("release_dates")
+    val releaseDates: ReleaseDates,
+    val revenue: Int,
     val runtime: Int,
     @SerializedName("spoken_languages")
     val spokenLanguages: List<SpokenLanguage>,
@@ -41,15 +43,6 @@ data class MovieDetails(
     @SerializedName("vote_count")
     val voteCount: Int
 ) {
-    data class BelongsToCollection(
-        @SerializedName("backdrop_path")
-        val backdropPath: String,
-        val id: Int,
-        val name: String,
-        @SerializedName("poster_path")
-        val posterPath: String
-    )
-
     data class Genre(
         val id: Int,
         val name: String
@@ -58,7 +51,7 @@ data class MovieDetails(
     data class ProductionCompany(
         val id: Int,
         @SerializedName("logo_path")
-        val logoPath: String,
+        val logoPath: Any,
         val name: String,
         @SerializedName("origin_country")
         val originCountry: String
@@ -69,6 +62,27 @@ data class MovieDetails(
         val iso31661: String,
         val name: String
     )
+
+    data class ReleaseDates(
+        val results: List<Result>
+    ) {
+        data class Result(
+            @SerializedName("iso_3166_1")
+            val iso31661: String,
+            @SerializedName("release_dates")
+            val releaseDates: List<ReleaseDate>
+        ) {
+            data class ReleaseDate(
+                val certification: String,
+                @SerializedName("iso_639_1")
+                val iso6391: Any,
+                val note: String,
+                @SerializedName("release_date")
+                val releaseDate: String,
+                val type: Int
+            )
+        }
+    }
 
     data class SpokenLanguage(
         @SerializedName("iso_639_1")
