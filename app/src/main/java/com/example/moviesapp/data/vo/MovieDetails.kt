@@ -7,7 +7,7 @@ data class MovieDetails(
     @SerializedName("backdrop_path")
     val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: Any,
+    val belongsToCollection: BelongsToCollection? = null,
     val budget: Int,
     val genres: List<Genre>,
     val homepage: String,
@@ -43,6 +43,15 @@ data class MovieDetails(
     @SerializedName("vote_count")
     val voteCount: Int
 ) {
+    data class BelongsToCollection(
+        @SerializedName("backdrop_path")
+        val backdropPath: String,
+        val id: Int,
+        val name: String,
+        @SerializedName("poster_path")
+        val posterPath: String
+    )
+
     data class Genre(
         val id: Int,
         val name: String
@@ -51,7 +60,7 @@ data class MovieDetails(
     data class ProductionCompany(
         val id: Int,
         @SerializedName("logo_path")
-        val logoPath: Any,
+        val logoPath: String? = null,
         val name: String,
         @SerializedName("origin_country")
         val originCountry: String
@@ -75,7 +84,7 @@ data class MovieDetails(
             data class ReleaseDate(
                 val certification: String,
                 @SerializedName("iso_639_1")
-                val iso6391: Any,
+                val iso6391: String? = null,
                 val note: String,
                 @SerializedName("release_date")
                 val releaseDate: String,
