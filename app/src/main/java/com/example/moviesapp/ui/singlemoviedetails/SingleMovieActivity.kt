@@ -1,7 +1,9 @@
 package com.example.moviesapp.ui.singlemoviedetails
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.moviesapp.App
@@ -36,8 +38,8 @@ class SingleMovieActivity : BaseActivity() {
     }
 
     private fun bindUI(movieDetails: MovieDetails) {
+        setGenres(movieDetails)
         movie_title.text = movieDetails.title
-        movie_tagline.text = movieDetails.tagline
         movie_release_date.text = movieDetails.releaseDate
         movie_rating.text = movieDetails.rating.toString()
         movie_runtime.text = movieDetails.runtime.toString()
@@ -52,5 +54,18 @@ class SingleMovieActivity : BaseActivity() {
         Glide.with(this)
             .load(moviePosterURL)
             .into(iv_movie_poster)
+    }
+
+    private fun setGenres(movieDetails: MovieDetails) {
+        val inflater = LayoutInflater.from(genres.context)
+        movieDetails.genres.forEach { genre ->
+            genres.addView(
+                inflater.inflate(R.layout.item_movie_genre, genres, false).apply {
+                    findViewById<TextView>(R.id.tag_label).apply {
+                        text = genre.name
+                    }
+                }
+            )
+        }
     }
 }
