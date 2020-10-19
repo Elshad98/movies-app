@@ -12,9 +12,8 @@ import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
 import com.example.moviesapp.ui.base.BaseActivity
+import com.example.moviesapp.utils.DateUtil
 import kotlinx.android.synthetic.main.activity_single_movie.*
-import java.text.NumberFormat
-import java.util.*
 
 class SingleMovieActivity : BaseActivity() {
 
@@ -40,20 +39,15 @@ class SingleMovieActivity : BaseActivity() {
     private fun bindUI(movieDetails: MovieDetails) {
         setGenres(movieDetails)
         movie_title.text = movieDetails.title
-        movie_release_date.text = movieDetails.releaseDate
-        movie_rating.text = movieDetails.rating.toString()
-        movie_runtime.text = movieDetails.runtime.toString()
-        movie_overview.text = movieDetails.overview
+        subtitle.text = movieDetails.title
+        running_time.text = DateUtil.getRunningTime(movieDetails.runtime)
+        release_date.text = DateUtil.getReleaseDate(movieDetails.releaseDate)
 
-        val formatCurrency = NumberFormat.getCurrencyInstance(Locale.US)
         val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
+        val glide = Glide.with(this).load(moviePosterURL)
 
-        movie_budget.text = formatCurrency.format(movieDetails.budget)
-        movie_revenue.text = formatCurrency.format(movieDetails.revenue)
-
-        Glide.with(this)
-            .load(moviePosterURL)
-            .into(iv_movie_poster)
+        glide.into(iv_movie_poster)
+        glide.into(cv_iv_movie_poster)
     }
 
     private fun setGenres(movieDetails: MovieDetails) {
