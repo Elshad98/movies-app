@@ -1,6 +1,9 @@
 package com.example.moviesapp.data.vo
 
 import com.google.gson.annotations.SerializedName
+import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeFormatter
+import java.util.*
 
 data class MovieDetails(
     val adult: Boolean,
@@ -9,6 +12,7 @@ data class MovieDetails(
     @SerializedName("belongs_to_collection")
     val belongsToCollection: BelongsToCollection? = null,
     val budget: Int,
+    val credits: Credits,
     val genres: List<Genre>,
     val homepage: String,
     val id: Int,
@@ -27,7 +31,7 @@ data class MovieDetails(
     @SerializedName("production_countries")
     val productionCountries: List<ProductionCountry>,
     @SerializedName("release_date")
-    val releaseDate: String,
+    private val _releaseDate: String,
     @SerializedName("release_dates")
     val releaseDates: ReleaseDates,
     val revenue: Int,
@@ -43,6 +47,19 @@ data class MovieDetails(
     @SerializedName("vote_count")
     val voteCount: Int
 ) {
+    val releaseDate: String
+        get() {
+            val date = LocalDate.parse(_releaseDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale("ru")))
+        }
+
+    val runningTime: String
+        get() {
+            val hour = runtime / 60
+            val min = runtime % 60
+            return "${hour}h ${if (min > 9) min else "0$min"}min"
+        }
+
     data class BelongsToCollection(
         @SerializedName("backdrop_path")
         val backdropPath: String,
@@ -51,6 +68,37 @@ data class MovieDetails(
         @SerializedName("poster_path")
         val posterPath: String
     )
+
+    data class Credits(
+        val cast: List<Cast>,
+        val crew: List<Crew>
+    ) {
+        data class Cast(
+            @SerializedName("cast_id")
+            val castId: Int,
+            val character: String,
+            @SerializedName("credit_id")
+            val creditId: String,
+            val gender: Int,
+            val id: Int,
+            val name: String,
+            val order: Int,
+            @SerializedName("profile_path")
+            val profilePath: String
+        )
+
+        data class Crew(
+            @SerializedName("credit_id")
+            val creditId: String,
+            val department: String,
+            val gender: Int,
+            val id: Int,
+            val job: String,
+            val name: String,
+            @SerializedName("profile_path")
+            val profilePath: String? = null
+        )
+    }
 
     data class Genre(
         val id: Int,

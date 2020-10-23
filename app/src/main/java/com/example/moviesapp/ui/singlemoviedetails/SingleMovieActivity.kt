@@ -12,7 +12,6 @@ import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
 import com.example.moviesapp.ui.base.BaseActivity
-import com.example.moviesapp.utils.DateUtil
 import kotlinx.android.synthetic.main.activity_single_movie.*
 
 class SingleMovieActivity : BaseActivity() {
@@ -40,8 +39,8 @@ class SingleMovieActivity : BaseActivity() {
         setGenres(movieDetails)
         movie_title.text = movieDetails.title
         subtitle.text = movieDetails.title
-        running_time.text = DateUtil.getRunningTime(movieDetails.runtime)
-        release_date.text = DateUtil.getReleaseDate(movieDetails.releaseDate)
+        running_time.text = movieDetails.runningTime
+        release_date.text = movieDetails.releaseDate
 
         val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
         val glide = Glide.with(this).load(moviePosterURL)
