@@ -38,9 +38,11 @@ class SingleMovieActivity : BaseActivity() {
     private fun bindUI(movieDetails: MovieDetails) {
         setGenres(movieDetails)
         movie_title.text = movieDetails.title
-        subtitle.text = movieDetails.title
+        director.text = movieDetails.credits.director
+        producer.text = movieDetails.credits.producer
         running_time.text = movieDetails.runningTime
         release_date.text = movieDetails.releaseDate
+        mpaa_rating.text = movieDetails.releaseDates.mpaaRating
 
         val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
         val glide = Glide.with(this).load(moviePosterURL)

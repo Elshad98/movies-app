@@ -50,7 +50,7 @@ data class MovieDetails(
     val releaseDate: String
         get() {
             val date = LocalDate.parse(_releaseDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale("ru")))
+            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale("en")))
         }
 
     val runningTime: String
@@ -73,6 +73,23 @@ data class MovieDetails(
         val cast: List<Cast>,
         val crew: List<Crew>
     ) {
+        val director: String
+            get() = getNameByJob("Director")
+
+        val producer: String
+            get() = getNameByJob("Producer")
+
+        private fun getNameByJob(job: String): String {
+            var result = ""
+            for (item in crew) {
+                if (item.job == job) {
+                    result = item.name
+                    break
+                }
+            }
+            return result
+        }
+
         data class Cast(
             @SerializedName("cast_id")
             val castId: Int,
@@ -123,6 +140,18 @@ data class MovieDetails(
     data class ReleaseDates(
         val results: List<Result>
     ) {
+        val mpaaRating: String
+            get() {
+                var result = ""
+                for (item in results) {
+                    if (item.iso31661 == "US") {
+                        result = item.releaseDates[0].certification
+                        break
+                    }
+                }
+                return result
+            }
+
         data class Result(
             @SerializedName("iso_3166_1")
             val iso31661: String,
