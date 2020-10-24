@@ -38,7 +38,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -80,7 +80,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="18dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="Movie"
+                            android:text="@string/title"
                             android:textColor="@color/white"
                             android:textSize="28sp" />
 
@@ -90,7 +90,7 @@
 
                             <LinearLayout
                                 android:id="@+id/genres"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal" />
                         </HorizontalScrollView>
@@ -102,15 +102,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginBottom="40dp"
                         android:layout_marginTop="40dp"
-                        android:orientation="horizontal"
-                        android:background="@drawable/border_top"/>
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/border_top"
+                        android:orientation="horizontal" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -148,7 +149,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_medium"
-                                        android:text="Running Time: "
+                                        android:text="@string/running_time"
                                         android:textColor="@color/grayish_blue"
                                         android:textSize="16sp" />
 
@@ -171,7 +172,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_medium"
-                                        android:text="Release Date: "
+                                        android:text="@string/release_date"
                                         android:textColor="@color/grayish_blue"
                                         android:textSize="16sp" />
 
@@ -194,7 +195,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_medium"
-                                        android:text="MPAA rating: "
+                                        android:text="@string/mpaa_rating"
                                         android:textColor="@color/grayish_blue"
                                         android:textSize="16sp" />
 
@@ -240,7 +241,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_medium"
-                                        android:text="Director: "
+                                        android:text="@string/director"
                                         android:textColor="@color/grayish_blue"
                                         android:textSize="16sp" />
 
@@ -254,6 +255,38 @@
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/border_top"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@string/storyline"
+                            android:textColor="@color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:id="@+id/storyline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:lineSpacingExtra="2dp"
+                            android:textColor="@color/grayish_blue"
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                 </LinearLayout>

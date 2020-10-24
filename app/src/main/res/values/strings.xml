@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Popular movies</string>
     <string name="connection_problem">Connection Problem.</string>
+    <string name="storyline">Storyline</string>
+    <string name="title">Movie</string>
+    <string name="director">Movie</string>
+    <string name="producer">Producer: </string>
+    <string name="running_time">Running Time: </string>
+    <string name="release_date">Release Date: </string>
+    <string name="mpaa_rating">MPAA rating: </string>
 </resources>
