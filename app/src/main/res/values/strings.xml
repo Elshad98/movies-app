@@ -3,9 +3,10 @@
     <string name="connection_problem">Connection Problem.</string>
     <string name="storyline">Storyline</string>
     <string name="title">Movie</string>
-    <string name="director">Movie</string>
-    <string name="producer">Producer: </string>
-    <string name="running_time">Running Time: </string>
-    <string name="release_date">Release Date: </string>
-    <string name="mpaa_rating">MPAA rating: </string>
+    <string name="director">Director:</string>
+    <string name="producer">Producer:</string>
+    <string name="user_score">User Score:</string>
+    <string name="running_time">Running Time:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="mpaa_rating">MPAA rating:</string>
 </resources>

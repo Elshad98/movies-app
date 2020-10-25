@@ -157,6 +157,7 @@
                                         android:id="@+id/running_time"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/montserrat_medium"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
@@ -180,6 +181,7 @@
                                         android:id="@+id/release_date"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/montserrat_medium"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
@@ -203,6 +205,7 @@
                                         android:id="@+id/mpaa_rating"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/montserrat_medium"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
@@ -218,7 +221,31 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_medium"
-                                        android:text="Producer: "
+                                        android:text="@string/user_score"
+                                        android:textColor="@color/grayish_blue"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/user_score"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="@string/producer"
                                         android:textColor="@color/grayish_blue"
                                         android:textSize="16sp" />
 
@@ -226,6 +253,7 @@
                                         android:id="@+id/producer"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/montserrat_medium"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
@@ -249,6 +277,7 @@
                                         android:id="@+id/director"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/montserrat_medium"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />

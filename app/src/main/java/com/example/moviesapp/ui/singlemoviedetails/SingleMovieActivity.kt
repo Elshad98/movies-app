@@ -44,6 +44,7 @@ class SingleMovieActivity : BaseActivity() {
         release_date.text = movieDetails.releaseDate
         mpaa_rating.text = movieDetails.releaseDates.mpaaRating
         storyline.text = movieDetails.overview
+        user_score.text = movieDetails.rating.toString()
 
         val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
         val glide = Glide.with(this).load(moviePosterURL)
