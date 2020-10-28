@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="112dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="22dp"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_movie_actor"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:background="@color/grey_charcoal"
+        android:scaleType="centerCrop"
+        app:riv_border_width="0dp"
+        app:riv_corner_radius="6dp"
+        app:riv_mutate_background="true"
+        app:riv_oval="false" />
+
+    <TextView
+        android:id="@+id/actor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

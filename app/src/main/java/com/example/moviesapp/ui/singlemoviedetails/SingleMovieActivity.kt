@@ -3,6 +3,7 @@ package com.example.moviesapp.ui.singlemoviedetails
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
@@ -15,6 +16,12 @@ import com.example.moviesapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
 
 class SingleMovieActivity : BaseActivity() {
+
+    companion object {
+
+        private const val TAG = "SingleMovieActivity"
+        private const val MAX_SIZE_CAST = 15
+    }
 
     private lateinit var viewModel: SingleMovieViewModel
 
@@ -37,6 +44,7 @@ class SingleMovieActivity : BaseActivity() {
 
     private fun bindUI(movieDetails: MovieDetails) {
         setGenres(movieDetails)
+        setCast(movieDetails)
         movie_title.text = movieDetails.title
         director.text = movieDetails.credits.director
         producer.text = movieDetails.credits.producer
@@ -63,6 +71,23 @@ class SingleMovieActivity : BaseActivity() {
                     }
                 }
             )
+        }
+    }
+
+    private fun setCast(movieDetails: MovieDetails) {
+        val inflater = LayoutInflater.from(cast.context)
+        run loop@{
+            movieDetails.credits.cast.forEachIndexed { index, item ->
+                if (index == MAX_SIZE_CAST) return@loop
+                cast.addView(
+                    inflater.inflate(R.layout.item_movie_actor, cast, false).apply {
+                        val movieActorURL = POSTER_BASE_URL + item.profilePath
+                        val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
+                        Glide.with(this).load(movieActorURL).into(ivMovieActor)
+                        findViewById<TextView>(R.id.actor_name).text = item.name
+                    }
+                )
+            }
         }
     }
 }
