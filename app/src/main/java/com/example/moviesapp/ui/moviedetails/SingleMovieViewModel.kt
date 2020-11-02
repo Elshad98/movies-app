@@ -1,4 +1,4 @@
-package com.example.moviesapp.ui.singlemoviedetails
+package com.example.moviesapp.ui.moviedetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
