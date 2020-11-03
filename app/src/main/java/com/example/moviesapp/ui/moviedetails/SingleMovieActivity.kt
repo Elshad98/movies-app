@@ -1,5 +1,6 @@
 package com.example.moviesapp.ui.moviedetails
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.vo.MovieDetails
 import com.example.moviesapp.ui.base.BaseActivity
+import com.example.moviesapp.ui.personDetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
 
 class SingleMovieActivity : BaseActivity() {
@@ -29,7 +31,7 @@ class SingleMovieActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_movie)
 
-        val movieId: Int = intent.getIntExtra("id", 1)
+        val movieId: Int = intent.getIntExtra("movie_id", 1)
 
         viewModel = viewModel(SingleMovieViewModel::class.java, App.scope())
         viewModel.getMovieDetails(movieId).observe(this, Observer { bindUI(it) })
@@ -85,6 +87,11 @@ class SingleMovieActivity : BaseActivity() {
                         val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
                         Glide.with(this).load(movieActorURL).into(ivMovieActor)
                         findViewById<TextView>(R.id.actor_name).text = item.name
+                        this.setOnClickListener {
+                            val intent = Intent(context, PersonDetailsActivity::class.java)
+                            intent.putExtra("person_id", item.id)
+                            context.startActivity(intent)
+                        }
                     }
                 )
             }

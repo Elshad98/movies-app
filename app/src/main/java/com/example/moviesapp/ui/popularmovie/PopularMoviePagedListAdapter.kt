@@ -102,7 +102,7 @@ class PopularMoviePagedListAdapter(
 
             itemView.setOnClickListener {
                 val intent = Intent(context, SingleMovieActivity::class.java)
-                intent.putExtra("id", movie?.id)
+                intent.putExtra("movie_id", movie?.id)
                 context.startActivity(intent)
             }
         }
