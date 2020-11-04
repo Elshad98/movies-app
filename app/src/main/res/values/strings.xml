@@ -3,6 +3,7 @@
     <string name="connection_problem">Connection Problem.</string>
     <string name="storyline">Storyline</string>
     <string name="title">Movie</string>
+    <string name="name">Name</string>
     <string name="director">Director:</string>
     <string name="producer">Producer:</string>
     <string name="user_score">User Score:</string>
