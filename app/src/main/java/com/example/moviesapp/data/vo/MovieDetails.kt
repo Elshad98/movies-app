@@ -1,8 +1,8 @@
 package com.example.moviesapp.data.vo
 
 import com.google.gson.annotations.SerializedName
-import org.threeten.bp.LocalDate
-import org.threeten.bp.format.DateTimeFormatter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 data class MovieDetails(

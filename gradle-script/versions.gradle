@@ -1,7 +1,7 @@
 ext {
     // Plugins
     vCheckstylePlugin = '8.4'
-    vAndroidPlugin = '4.0.1'
+    vAndroidPlugin = '4.1.0'
     vKtlintPlugin = '9.2.1'
     vKotlin = '1.3.72'
 
@@ -23,7 +23,7 @@ ext {
     vCoreKtx = '1.3.1'
     vCardview = '1.0.0'
     vRoundedImageview = '2.3.0'
-    vThreeTenABP = '1.2.4'
+    vDesugarJdkLibs = '1.1.0'
     vAndroidxRecyclerView = '1.1.0'
     vAndroidxAppCompat = '1.2.0'
     vAndroidxConstraintLayout = '2.0.1'
