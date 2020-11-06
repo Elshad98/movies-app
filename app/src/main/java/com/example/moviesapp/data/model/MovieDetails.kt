@@ -1,4 +1,4 @@
-package com.example.moviesapp.data.vo
+package com.example.moviesapp.data.model
 
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDate

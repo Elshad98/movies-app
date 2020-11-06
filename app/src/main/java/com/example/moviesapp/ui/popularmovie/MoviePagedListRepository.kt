@@ -8,7 +8,7 @@ import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.repository.MovieDataSource
 import com.example.moviesapp.data.repository.MovieDataSourceFactory
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.vo.Movie
+import com.example.moviesapp.data.model.Movie
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

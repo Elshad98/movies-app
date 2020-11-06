@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.vo.Movie
+import com.example.moviesapp.data.model.Movie
 import com.example.moviesapp.ui.moviedetails.SingleMovieActivity
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*

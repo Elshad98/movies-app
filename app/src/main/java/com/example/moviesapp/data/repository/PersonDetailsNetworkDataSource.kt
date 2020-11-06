@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.moviesapp.data.api.TheMovieDBInterface
-import com.example.moviesapp.data.vo.PersonDetails
+import com.example.moviesapp.data.model.PersonDetails
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 

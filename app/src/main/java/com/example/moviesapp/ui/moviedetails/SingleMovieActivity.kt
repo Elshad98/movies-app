@@ -12,7 +12,7 @@ import com.example.moviesapp.App
 import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.vo.MovieDetails
+import com.example.moviesapp.data.model.MovieDetails
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.personDetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*

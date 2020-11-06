@@ -3,7 +3,7 @@ package com.example.moviesapp.ui.personDetails
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.vo.PersonDetails
+import com.example.moviesapp.data.model.PersonDetails
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

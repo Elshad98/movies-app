@@ -3,7 +3,7 @@ package com.example.moviesapp.data.repository
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.example.moviesapp.data.api.TheMovieDBInterface
-import com.example.moviesapp.data.vo.Movie
+import com.example.moviesapp.data.model.Movie
 import io.reactivex.disposables.CompositeDisposable
 
 class MovieDataSourceFactory(

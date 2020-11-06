@@ -8,7 +8,7 @@ import com.example.moviesapp.App
 import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.vo.PersonDetails
+import com.example.moviesapp.data.model.PersonDetails
 import com.example.moviesapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_person_details.*
 

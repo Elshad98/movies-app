@@ -1,8 +1,8 @@
 package com.example.moviesapp.data.api
 
-import com.example.moviesapp.data.vo.MovieDetails
-import com.example.moviesapp.data.vo.MovieResponse
-import com.example.moviesapp.data.vo.PersonDetails
+import com.example.moviesapp.data.model.MovieDetails
+import com.example.moviesapp.data.model.MovieResponse
+import com.example.moviesapp.data.model.PersonDetails
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

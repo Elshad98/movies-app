@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.moviesapp.data.api.TheMovieDBClient
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.data.repository.PersonDetailsNetworkDataSource
-import com.example.moviesapp.data.vo.PersonDetails
+import com.example.moviesapp.data.model.PersonDetails
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
