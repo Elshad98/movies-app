@@ -12,11 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.MoviesApp.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.moviedetails.SingleMovieActivity" />
         <activity android:name=".ui.personDetails.PersonDetailsActivity" />
-        <activity android:name=".ui.popularmovie.MainActivity">
+        <activity
+            android:name=".ui.popularmovie.MainActivity"
+            android:theme="@style/Theme.MoviesApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
