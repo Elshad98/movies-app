@@ -86,7 +86,9 @@
 
                         <HorizontalScrollView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:scrollbars="none">
 
                             <LinearLayout
                                 android:id="@+id/genres"
@@ -334,15 +336,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
                             android:fontFamily="@font/montserrat_medium"
                             android:text="@string/full_cast"
                             android:textColor="@color/white"
-                            android:layout_marginBottom="16dp"
                             android:textSize="21sp" />
 
                         <HorizontalScrollView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:scrollbars="none">
 
                             <LinearLayout
                                 android:id="@+id/cast"
