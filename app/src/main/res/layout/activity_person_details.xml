@@ -78,11 +78,21 @@
                             android:id="@+id/person_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="18dp"
                             android:fontFamily="@font/montserrat_regular"
                             android:text="@string/name"
                             android:textColor="@color/white"
-                            android:textSize="28sp" />
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:id="@+id/date_of_birth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="18dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="@string/date_of_birth"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 

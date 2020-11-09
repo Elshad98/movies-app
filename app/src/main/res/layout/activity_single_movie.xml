@@ -82,7 +82,7 @@
                             android:fontFamily="@font/montserrat_regular"
                             android:text="@string/title"
                             android:textColor="@color/white"
-                            android:textSize="28sp" />
+                            android:textSize="30sp" />
 
                         <HorizontalScrollView
                             android:layout_width="match_parent"

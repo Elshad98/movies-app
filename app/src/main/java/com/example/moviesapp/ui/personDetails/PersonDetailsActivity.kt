@@ -36,6 +36,7 @@ class PersonDetailsActivity : BaseActivity() {
 
     private fun bindUI(personDetails: PersonDetails) {
         person_name.text = personDetails.name
+        date_of_birth.text = personDetails.dateAndPlaceOfBirth
 
         val personImageURL = POSTER_BASE_URL + personDetails.profilePath
         Glide.with(this).load(personImageURL).into(iv_person_image)

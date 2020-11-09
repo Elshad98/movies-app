@@ -1,6 +1,9 @@
 package com.example.moviesapp.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 data class PersonDetails(
     val adult: Boolean,
@@ -25,6 +28,15 @@ data class PersonDetails(
     @SerializedName("profile_path")
     val profilePath: String
 ) {
+
+    val dateAndPlaceOfBirth: String
+        get() {
+            val date = with(LocalDate.parse(birthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"))) {
+                format(DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale("en")))
+            }
+            return "$date in $placeOfBirth"
+        }
+
     data class MovieCredits(
         val cast: List<Cast>,
         val crew: List<Crew> = emptyList()
