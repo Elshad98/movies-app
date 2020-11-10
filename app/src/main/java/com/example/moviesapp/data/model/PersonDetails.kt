@@ -10,7 +10,7 @@ data class PersonDetails(
     @SerializedName("also_known_as")
     val alsoKnownAs: List<String>,
     val biography: String,
-    val birthday: String,
+    val birthday: String? = null,
     val deathday: String? = null,
     val gender: Int,
     val homepage: String? = null,
@@ -23,7 +23,7 @@ data class PersonDetails(
     val movieCredits: MovieCredits,
     val name: String,
     @SerializedName("place_of_birth")
-    val placeOfBirth: String,
+    val placeOfBirth: String? = null,
     val popularity: Double,
     @SerializedName("profile_path")
     val profilePath: String
@@ -31,10 +31,13 @@ data class PersonDetails(
 
     val dateAndPlaceOfBirth: String
         get() {
-            val date = with(LocalDate.parse(birthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"))) {
-                format(DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale("en")))
+            var date: String? = null
+            birthday?.let {
+                date = with(LocalDate.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd"))) {
+                    format(DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale("en")))
+                }
             }
-            return "$date in $placeOfBirth"
+            return "${date ?: ""} ${if (placeOfBirth == null) "" else "in $placeOfBirth" }"
         }
 
     data class MovieCredits(
