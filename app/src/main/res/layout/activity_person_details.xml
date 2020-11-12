@@ -88,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:layout_marginBottom="18dp"
+                            android:lineSpacingExtra="2dp"
                             android:fontFamily="@font/montserrat_regular"
                             android:text="@string/date_of_birth"
                             android:textColor="@color/white"
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="26dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -142,8 +142,39 @@
                                 android:orientation="horizontal" />
                         </HorizontalScrollView>
                     </LinearLayout>
-                </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/border_top"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@string/biography"
+                            android:textColor="@color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:id="@+id/biography"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:lineSpacingExtra="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
 

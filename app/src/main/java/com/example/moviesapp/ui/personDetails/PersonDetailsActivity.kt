@@ -47,6 +47,7 @@ class PersonDetailsActivity : BaseActivity() {
     private fun bindUI(personDetails: PersonDetails) {
         person_name.text = personDetails.name
         date_of_birth.text = personDetails.dateAndPlaceOfBirth
+        biography.text = personDetails.biography
 
         setFilmography(personDetails)
         val personImageURL = POSTER_BASE_URL + personDetails.profilePath
