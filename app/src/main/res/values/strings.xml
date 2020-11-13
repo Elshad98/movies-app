@@ -13,5 +13,5 @@
     <string name="running_time">Running Time:</string>
     <string name="release_date">Release Date:</string>
     <string name="mpaa_rating">MPAA Rating:</string>
-    <string name="full_cast">Full Cast</string>
+    <string name="cast">Cast</string>
 </resources>

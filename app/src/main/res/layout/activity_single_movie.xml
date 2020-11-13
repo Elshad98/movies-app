@@ -338,7 +338,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/full_cast"
+                            android:text="@string/cast"
                             android:textColor="@color/white"
                             android:textSize="21sp" />
 
