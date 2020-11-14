@@ -306,6 +306,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_medium"
                             android:text="@string/storyline"
+                            android:layout_marginBottom="18dp"
                             android:textColor="@color/white"
                             android:textSize="21sp" />
 
@@ -313,9 +314,8 @@
                             android:id="@+id/storyline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:lineSpacingExtra="2dp"
+                            android:lineSpacingExtra="5dp"
                             android:textColor="@color/grayish_blue"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -336,7 +336,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
+                            android:layout_marginBottom="18dp"
                             android:fontFamily="@font/montserrat_medium"
                             android:text="@string/cast"
                             android:textColor="@color/white"

@@ -25,7 +25,7 @@ data class MovieDetails(
     val overview: String,
     val popularity: Double,
     @SerializedName("poster_path")
-    val posterPath: String,
+    val posterPath: String? = null,
     @SerializedName("production_companies")
     val productionCompanies: List<ProductionCompany>,
     @SerializedName("production_countries")
@@ -101,7 +101,7 @@ data class MovieDetails(
             val name: String,
             val order: Int,
             @SerializedName("profile_path")
-            val profilePath: String
+            val profilePath: String? = null
         )
 
         data class Crew(

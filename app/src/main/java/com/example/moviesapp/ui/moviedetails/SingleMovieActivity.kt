@@ -56,11 +56,12 @@ class SingleMovieActivity : BaseActivity() {
         storyline.text = movieDetails.overview
         user_score.text = movieDetails.rating.toString()
 
-        val moviePosterURL = POSTER_BASE_URL + movieDetails.posterPath
-        val glide = Glide.with(this).load(moviePosterURL)
+        movieDetails.posterPath?.let {
+            val glide = Glide.with(this).load(POSTER_BASE_URL + it)
 
-        glide.into(iv_movie_poster)
-        glide.into(cv_iv_movie_poster)
+            glide.into(iv_movie_poster)
+            glide.into(cv_iv_movie_poster)
+        }
     }
 
     private fun setGenres(movieDetails: MovieDetails) {
@@ -83,9 +84,10 @@ class SingleMovieActivity : BaseActivity() {
                 if (index == MAX_SIZE_CAST) return@loop
                 cast.addView(
                     inflater.inflate(R.layout.item_movie_actor, cast, false).apply {
-                        val movieActorURL = POSTER_BASE_URL + item.profilePath
-                        val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
-                        Glide.with(this).load(movieActorURL).into(ivMovieActor)
+                        item.profilePath?.let {
+                            val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
+                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMovieActor)
+                        }
                         findViewById<TextView>(R.id.actor_name).text = item.name
                         this.setOnClickListener {
                             val intent = Intent(context, PersonDetailsActivity::class.java)

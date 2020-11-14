@@ -88,8 +88,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:lineSpacingExtra="4dp"
                             android:fontFamily="@font/montserrat_regular"
+                            android:lineSpacingExtra="4dp"
                             android:text="@string/date_of_birth"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
@@ -161,6 +161,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_medium"
                             android:text="@string/biography"
+                            android:layout_marginBottom="18dp"
                             android:textColor="@color/white"
                             android:textSize="21sp" />
 
@@ -168,10 +169,9 @@
                             android:id="@+id/biography"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
                             android:fontFamily="@font/montserrat_medium"
-                            android:lineSpacingExtra="2dp"
-                            android:textColor="@color/white"
+                            android:lineSpacingExtra="5dp"
+                            android:textColor="@color/grayish_blue"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>

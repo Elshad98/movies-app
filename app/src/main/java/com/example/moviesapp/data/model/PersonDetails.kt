@@ -26,7 +26,7 @@ data class PersonDetails(
     val placeOfBirth: String? = null,
     val popularity: Double,
     @SerializedName("profile_path")
-    val profilePath: String
+    val profilePath: String? = null
 ) {
 
     val dateAndPlaceOfBirth: String
@@ -62,7 +62,7 @@ data class PersonDetails(
             val overview: String,
             val popularity: Double,
             @SerializedName("poster_path")
-            val posterPath: String,
+            val posterPath: String? = null,
             @SerializedName("release_date")
             val releaseDate: String,
             val title: String,

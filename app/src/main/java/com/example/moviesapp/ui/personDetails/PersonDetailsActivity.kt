@@ -50,8 +50,10 @@ class PersonDetailsActivity : BaseActivity() {
         biography.text = personDetails.biography
 
         setFilmography(personDetails)
-        val personImageURL = POSTER_BASE_URL + personDetails.profilePath
-        Glide.with(this).load(personImageURL).into(iv_person_image)
+
+        personDetails.profilePath?.let {
+            Glide.with(this).load(POSTER_BASE_URL + it).into(iv_person_image)
+        }
     }
 
     private fun setFilmography(personDetails: PersonDetails) {
@@ -61,9 +63,10 @@ class PersonDetailsActivity : BaseActivity() {
                 if (index == MAX_SIZE_CAST) return@loop
                 filmography.addView(
                     inflater.inflate(R.layout.movie_list_item, filmography, false).apply {
-                        val poster = POSTER_BASE_URL + item.posterPath
-                        val ivMoviePoster = findViewById<ImageView>(R.id.cv_iv_movie_poster)
-                        Glide.with(this).load(poster).into(ivMoviePoster)
+                        item.posterPath?.let {
+                            val ivMoviePoster = findViewById<ImageView>(R.id.cv_iv_movie_poster)
+                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
+                        }
                         findViewById<TextView>(R.id.cv_movie_title).apply {
                             text = item.title
                         }
