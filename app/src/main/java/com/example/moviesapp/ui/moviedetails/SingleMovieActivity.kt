@@ -57,10 +57,9 @@ class SingleMovieActivity : BaseActivity() {
         user_score.text = movieDetails.rating.toString()
 
         movieDetails.posterPath?.let {
-            val glide = Glide.with(this).load(POSTER_BASE_URL + it)
-
-            glide.into(iv_movie_poster)
-            glide.into(cv_iv_movie_poster)
+            val poster = POSTER_BASE_URL + it
+            Glide.with(this).load(poster).into(iv_movie_poster)
+            Glide.with(this).load(poster).into(cv_iv_movie_poster)
         }
     }
 

@@ -13,6 +13,7 @@ data class MovieDetails(
     val belongsToCollection: BelongsToCollection? = null,
     val budget: Int,
     val credits: Credits,
+    val similar: Similar,
     val genres: List<Genre>,
     val homepage: String,
     val id: Int,
@@ -67,6 +68,15 @@ data class MovieDetails(
         val name: String,
         @SerializedName("poster_path")
         val posterPath: String
+    )
+
+    data class Similar(
+        val page: Int,
+        @SerializedName("total_page")
+        val totalPages: Int,
+        @SerializedName("total_result")
+        val totalResult: Int,
+        val results: List<Movie>
     )
 
     data class Credits(
