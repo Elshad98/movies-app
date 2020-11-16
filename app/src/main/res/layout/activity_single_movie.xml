@@ -107,13 +107,7 @@
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginBottom="40dp"
-                        android:background="@drawable/border_top"
-                        android:orientation="horizontal" />
+                    <include layout="@layout/view_delimiter" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -288,13 +282,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginBottom="40dp"
-                        android:background="@drawable/border_top"
-                        android:orientation="horizontal" />
+                    <include layout="@layout/view_delimiter" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -320,13 +308,7 @@
                             android:textSize="16sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginBottom="40dp"
-                        android:background="@drawable/border_top"
-                        android:orientation="horizontal" />
+                    <include layout="@layout/view_delimiter" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -356,13 +338,7 @@
                         </HorizontalScrollView>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginBottom="40dp"
-                        android:background="@drawable/border_top"
-                        android:orientation="horizontal" />
+                    <include layout="@layout/view_delimiter" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -386,9 +362,9 @@
                             <LinearLayout
                                 android:id="@+id/similar_movies"
                                 android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="-8dp"
                                 android:layout_marginRight="-8dp"
-                                android:layout_height="wrap_content"
                                 android:orientation="horizontal" />
                         </HorizontalScrollView>
 
