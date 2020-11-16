@@ -45,6 +45,7 @@ class SingleMovieActivity : BaseActivity() {
     }
 
     private fun bindUI(movieDetails: MovieDetails) {
+        setSimilarMovies(movieDetails)
         setGenres(movieDetails)
         setCast(movieDetails)
         movie_title.text = movieDetails.title
@@ -73,6 +74,29 @@ class SingleMovieActivity : BaseActivity() {
                     }
                 }
             )
+        }
+    }
+
+    private fun setSimilarMovies(movieDetails: MovieDetails) {
+        val inflater = LayoutInflater.from(similar_movies.context)
+        run loop@{
+            movieDetails.similar.results.forEachIndexed { index, item ->
+                if (index == MAX_SIZE_CAST) return@loop
+                similar_movies.addView(
+                    inflater.inflate(R.layout.movie_list_item, similar_movies, false).apply {
+                        item.posterPath?.let {
+                            val ivMoviePoster = findViewById<ImageView>(R.id.cv_iv_movie_poster)
+                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
+                        }
+                        findViewById<TextView>(R.id.cv_movie_title).text = item.title
+                        this.setOnClickListener {
+                            val intent = Intent(context, SingleMovieActivity::class.java)
+                            intent.putExtra("movie_id", item.id)
+                            context.startActivity(intent)
+                        }
+                    }
+                )
+            }
         }
     }
 
