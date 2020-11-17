@@ -70,6 +70,8 @@ dependencies {
     testImplementation "org.spekframework.spek2:spek-runner-junit5:$vSpek2"
     // Glide
     implementation "com.github.bumptech.glide:glide:$vGlide"
+    // FlexboxLayout
+    implementation "com.google.android:flexbox:$vFlexboxLayout"
     // RoundedImageView
     implementation "com.makeramen:roundedimageview:$vRoundedImageview"
     // Paging

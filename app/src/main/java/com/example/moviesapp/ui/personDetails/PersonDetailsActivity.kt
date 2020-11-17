@@ -62,14 +62,12 @@ class PersonDetailsActivity : BaseActivity() {
             personDetails.movieCredits.cast.forEachIndexed { index, item ->
                 if (index == MAX_SIZE_CAST) return@loop
                 filmography.addView(
-                    inflater.inflate(R.layout.movie_list_item, filmography, false).apply {
+                    inflater.inflate(R.layout.list_item_movie, filmography, false).apply {
                         item.posterPath?.let {
-                            val ivMoviePoster = findViewById<ImageView>(R.id.cv_iv_movie_poster)
+                            val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
                             Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
                         }
-                        findViewById<TextView>(R.id.cv_movie_title).apply {
-                            text = item.title
-                        }
+                        findViewById<TextView>(R.id.item_movie_title).text = item.title
                         setOnClickListener {
                             val intent = Intent(context, SingleMovieActivity::class.java)
                             intent.putExtra("movie_id", item.id)

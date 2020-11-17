@@ -45,16 +45,20 @@ class SingleMovieActivity : BaseActivity() {
     }
 
     private fun bindUI(movieDetails: MovieDetails) {
-        setSimilarMovies(movieDetails)
+        if (movieDetails.similar.results.isEmpty()) {
+            similar_movies_layout.visibility = View.GONE
+        } else {
+            setSimilarMovies(movieDetails)
+        }
         setGenres(movieDetails)
         setCast(movieDetails)
         movie_title.text = movieDetails.title
+        storyline.text = movieDetails.overview
         director.text = movieDetails.credits.director
         producer.text = movieDetails.credits.producer
         running_time.text = movieDetails.runningTime
         release_date.text = movieDetails.releaseDate
         mpaa_rating.text = movieDetails.releaseDates.mpaaRating
-        storyline.text = movieDetails.overview
         user_score.text = movieDetails.rating.toString()
 
         movieDetails.posterPath?.let {
@@ -68,10 +72,8 @@ class SingleMovieActivity : BaseActivity() {
         val inflater = LayoutInflater.from(genres.context)
         movieDetails.genres.forEach { genre ->
             genres.addView(
-                inflater.inflate(R.layout.item_movie_genre, genres, false).apply {
-                    findViewById<TextView>(R.id.tag_label).apply {
-                        text = genre.name
-                    }
+                inflater.inflate(R.layout.list_item_genre, genres, false).apply {
+                    findViewById<TextView>(R.id.tag_label).text = genre.name
                 }
             )
         }
@@ -83,12 +85,12 @@ class SingleMovieActivity : BaseActivity() {
             movieDetails.similar.results.forEachIndexed { index, item ->
                 if (index == MAX_SIZE_CAST) return@loop
                 similar_movies.addView(
-                    inflater.inflate(R.layout.movie_list_item, similar_movies, false).apply {
+                    inflater.inflate(R.layout.list_item_movie, similar_movies, false).apply {
                         item.posterPath?.let {
-                            val ivMoviePoster = findViewById<ImageView>(R.id.cv_iv_movie_poster)
+                            val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
                             Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
                         }
-                        findViewById<TextView>(R.id.cv_movie_title).text = item.title
+                        findViewById<TextView>(R.id.item_movie_title).text = item.title
                         this.setOnClickListener {
                             val intent = Intent(context, SingleMovieActivity::class.java)
                             intent.putExtra("movie_id", item.id)
@@ -106,7 +108,7 @@ class SingleMovieActivity : BaseActivity() {
             movieDetails.credits.cast.forEachIndexed { index, item ->
                 if (index == MAX_SIZE_CAST) return@loop
                 cast.addView(
-                    inflater.inflate(R.layout.item_movie_actor, cast, false).apply {
+                    inflater.inflate(R.layout.list_item_actor, cast, false).apply {
                         item.profilePath?.let {
                             val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
                             Glide.with(this).load(POSTER_BASE_URL + it).into(ivMovieActor)

@@ -29,6 +29,7 @@ ext {
     vAndroidxConstraintLayout = '2.0.1'
     vPaging = '2.1.2'
     vToothpick = '3.1.0'
+    vFlexboxLayout = '2.0.1'
 
     // Test
     vSpek2 = '2.0.2'
