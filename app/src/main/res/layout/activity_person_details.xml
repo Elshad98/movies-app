@@ -99,75 +99,69 @@
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/filmography_person_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="26dp"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/view_delimiter" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="@string/filmography"
+                        android:textColor="@color/white"
+                        android:textSize="21sp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/filmography"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/biography_person_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginTop="-26px"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
 
                     <include layout="@layout/view_delimiter" />
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="@string/biography"
+                        android:textColor="@color/white"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/biography"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="18dp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/filmography"
-                            android:textColor="@color/white"
-                            android:textSize="21sp" />
-
-                        <HorizontalScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:overScrollMode="never"
-                            android:scrollbars="none">
-
-                            <LinearLayout
-                                android:id="@+id/filmography"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="-8dp"
-                                android:layout_marginRight="-8dp"
-                                android:orientation="horizontal" />
-                        </HorizontalScrollView>
-                    </LinearLayout>
-
-                    <include layout="@layout/view_delimiter" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="18dp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/biography"
-                            android:textColor="@color/white"
-                            android:textSize="21sp" />
-
-                        <TextView
-                            android:id="@+id/biography"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:lineSpacingExtra="5dp"
-                            android:textColor="@color/grayish_blue"
-                            android:textSize="16sp" />
-                    </LinearLayout>
+                        android:fontFamily="@font/montserrat_medium"
+                        android:lineSpacingExtra="5dp"
+                        android:textColor="@color/grayish_blue"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
-
-
         </ScrollView>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

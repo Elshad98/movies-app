@@ -47,10 +47,16 @@ class PersonDetailsActivity : BaseActivity() {
     private fun bindUI(personDetails: PersonDetails) {
         person_name.text = personDetails.name
         date_of_birth.text = personDetails.dateAndPlaceOfBirth
-        biography.text = personDetails.biography
-
-        setFilmography(personDetails)
-
+        if (personDetails.biography.isEmpty()) {
+            biography_person_layout.visibility = View.GONE
+        } else {
+            biography.text = personDetails.biography
+        }
+        if (personDetails.movieCredits.cast.isEmpty()) {
+            filmography_person_layout.visibility = View.GONE
+        } else {
+            setFilmography(personDetails)
+        }
         personDetails.profilePath?.let {
             Glide.with(this).load(POSTER_BASE_URL + it).into(iv_person_image)
         }

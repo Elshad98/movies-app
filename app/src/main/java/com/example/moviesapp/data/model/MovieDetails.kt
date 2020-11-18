@@ -18,7 +18,7 @@ data class MovieDetails(
     val homepage: String,
     val id: Int,
     @SerializedName("imdb_id")
-    val imdbId: String,
+    val imdbId: String? = null,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_title")
@@ -50,8 +50,11 @@ data class MovieDetails(
 ) {
     val releaseDate: String
         get() {
-            val date = LocalDate.parse(_releaseDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale("en")))
+            if (_releaseDate.isNotEmpty()) {
+                val date = LocalDate.parse(_releaseDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale("en")))
+            }
+            return ""
         }
 
     val runningTime: String
@@ -63,7 +66,7 @@ data class MovieDetails(
 
     data class BelongsToCollection(
         @SerializedName("backdrop_path")
-        val backdropPath: String,
+        val backdropPath: String? = null,
         val id: Int,
         val name: String,
         @SerializedName("poster_path")
