@@ -16,6 +16,7 @@ import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.personDetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
+import kotlinx.android.synthetic.main.view_network_state.*
 
 class SingleMovieActivity : BaseActivity() {
 
@@ -41,7 +42,8 @@ class SingleMovieActivity : BaseActivity() {
     private val stateObserve = Observer<NetworkState> { networkState ->
         progress_bar.visibility =
             if (networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
-        txt_error.visibility = if (networkState == NetworkState.ERROR) View.VISIBLE else View.GONE
+        error_message.visibility =
+            if (networkState == NetworkState.ERROR) View.VISIBLE else View.GONE
     }
 
     private fun bindUI(movieDetails: MovieDetails) {
@@ -50,8 +52,12 @@ class SingleMovieActivity : BaseActivity() {
         } else {
             setSimilarMovies(movieDetails)
         }
+        if (movieDetails.credits.cast.isEmpty()) {
+            cast_layout.visibility = View.GONE
+        } else {
+            setCast(movieDetails)
+        }
         setGenres(movieDetails)
-        setCast(movieDetails)
         movie_title.text = movieDetails.title
         storyline.text = movieDetails.overview
         director.text = movieDetails.credits.director

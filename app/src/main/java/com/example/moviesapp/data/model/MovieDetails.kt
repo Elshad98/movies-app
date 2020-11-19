@@ -35,7 +35,7 @@ data class MovieDetails(
     private val _releaseDate: String,
     @SerializedName("release_dates")
     val releaseDates: ReleaseDates,
-    val revenue: Int,
+    val revenue: Long,
     val runtime: Int,
     @SerializedName("spoken_languages")
     val spokenLanguages: List<SpokenLanguage>,

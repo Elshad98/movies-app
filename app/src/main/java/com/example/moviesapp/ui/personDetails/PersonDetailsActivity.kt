@@ -16,6 +16,7 @@ import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.moviedetails.SingleMovieActivity
 import kotlinx.android.synthetic.main.activity_person_details.*
+import kotlinx.android.synthetic.main.view_network_state.*
 
 class PersonDetailsActivity : BaseActivity() {
 
@@ -38,9 +39,9 @@ class PersonDetailsActivity : BaseActivity() {
     }
 
     private val stateObserver = Observer<NetworkState> { networkState ->
-        progress_bar_person.visibility =
+        progress_bar.visibility =
             if (networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
-        txt_error_person.visibility =
+        error_message.visibility =
             if (networkState == NetworkState.ERROR) View.VISIBLE else View.GONE
     }
 

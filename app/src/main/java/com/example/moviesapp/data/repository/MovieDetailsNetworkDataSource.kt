@@ -34,13 +34,13 @@ class MovieDetailsNetworkDataSource(
                 apiService.getMovieDetails(movieId)
                     .subscribeOn(Schedulers.io())
                     .subscribe(
-                        {
-                            _downloadedMovieDetailsResponse.postValue(it)
+                        { movieDetails ->
+                            _downloadedMovieDetailsResponse.postValue(movieDetails)
                             _networkState.postValue(NetworkState.LOADED)
                         },
-                        {
+                        { throwable ->
                             _networkState.postValue(NetworkState.ERROR)
-                            Log.e(TAG, it.message)
+                            Log.e(TAG, throwable.message)
                         }
                     )
             )

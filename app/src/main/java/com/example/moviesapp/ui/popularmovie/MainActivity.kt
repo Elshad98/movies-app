@@ -9,6 +9,7 @@ import com.example.moviesapp.R
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.view_network_state.*
 
 class MainActivity : BaseActivity() {
 
@@ -42,9 +43,9 @@ class MainActivity : BaseActivity() {
     }
 
     private val stateObserve = Observer<NetworkState> { networkState ->
-        progress_bar_popular.visibility =
+        progress_bar.visibility =
             if (viewModel.listIsEmpty() && networkState == NetworkState.LOADING) View.VISIBLE else View.GONE
-        txt_error_popular.visibility =
+        error_message.visibility =
             if (viewModel.listIsEmpty() && networkState == NetworkState.ERROR) View.VISIBLE else View.GONE
 
         if (!viewModel.listIsEmpty()) {

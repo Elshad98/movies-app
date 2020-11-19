@@ -34,13 +34,13 @@ class PersonDetailsNetworkDataSource(
                 apiService.getPersonDetails(personId)
                     .subscribeOn(Schedulers.io())
                     .subscribe(
-                        {
-                            _downloadedPersonDetailsResponse.postValue(it)
+                        { personDetails ->
+                            _downloadedPersonDetailsResponse.postValue(personDetails)
                             _networkState.postValue(NetworkState.LOADED)
                         },
-                        {
+                        { throwable ->
                             _networkState.postValue(NetworkState.ERROR)
-                            Log.e(TAG, it.message)
+                            Log.e(TAG, throwable.message)
                         }
                     )
             )
