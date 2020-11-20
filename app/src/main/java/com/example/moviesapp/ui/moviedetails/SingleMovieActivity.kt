@@ -1,6 +1,7 @@
 package com.example.moviesapp.ui.moviedetails
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.moviesapp.App
-import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
+import com.example.moviesapp.BuildConfig.*
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.MovieDetails
 import com.example.moviesapp.data.repository.NetworkState
@@ -32,7 +33,7 @@ class SingleMovieActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_movie)
 
-        val movieId: Int = intent.getIntExtra("movie_id", 1)
+        val movieId: Int = intent.getIntExtra(INTENT_MOVIE_ID, 1)
 
         viewModel = viewModel(SingleMovieViewModel::class.java, App.scope())
         viewModel.getMovieDetails(movieId).observe(this, Observer { bindUI(it) })
@@ -58,20 +59,36 @@ class SingleMovieActivity : BaseActivity() {
             setCast(movieDetails)
         }
         setGenres(movieDetails)
-        movie_title.text = movieDetails.title
-        storyline.text = movieDetails.overview
-        director.text = movieDetails.credits.director
-        producer.text = movieDetails.credits.producer
-        running_time.text = movieDetails.runningTime
-        release_date.text = movieDetails.releaseDate
-        mpaa_rating.text = movieDetails.releaseDates.mpaaRating
-        user_score.text = movieDetails.rating.toString()
-
+        setMovieInfo(movieDetails)
+        cv_iv_movie_poster.setOnClickListener {
+            intent =
+                if (packageManager.getLaunchIntentForPackage("com.google.android.youtube") == null) {
+                    val url = VIDEO_BASE_URL + movieDetails.videos.results[0].key
+                    Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                } else {
+                    Intent(Intent.ACTION_SEARCH).apply {
+                        setPackage("com.google.android.youtube")
+                        putExtra("query", movieDetails.videos.results[0].key)
+                    }
+                }
+            startActivity(intent)
+        }
         movieDetails.posterPath?.let {
             val poster = POSTER_BASE_URL + it
             Glide.with(this).load(poster).into(iv_movie_poster)
             Glide.with(this).load(poster).into(cv_iv_movie_poster)
         }
+    }
+
+    private fun setMovieInfo(movieDetails: MovieDetails) {
+        movie_title.text = movieDetails.title
+        storyline.text = movieDetails.overview
+        running_time.text = movieDetails.runningTime
+        release_date.text = movieDetails.releaseDate
+        director.text = movieDetails.credits.director
+        producer.text = movieDetails.credits.producer
+        user_score.text = movieDetails.rating.toString()
+        mpaa_rating.text = movieDetails.releaseDates.mpaaRating
     }
 
     private fun setGenres(movieDetails: MovieDetails) {
@@ -99,7 +116,7 @@ class SingleMovieActivity : BaseActivity() {
                         findViewById<TextView>(R.id.item_movie_title).text = item.title
                         this.setOnClickListener {
                             val intent = Intent(context, SingleMovieActivity::class.java)
-                            intent.putExtra("movie_id", item.id)
+                            intent.putExtra(INTENT_MOVIE_ID, item.id)
                             context.startActivity(intent)
                         }
                     }
@@ -122,7 +139,7 @@ class SingleMovieActivity : BaseActivity() {
                         findViewById<TextView>(R.id.actor_name).text = item.name
                         this.setOnClickListener {
                             val intent = Intent(context, PersonDetailsActivity::class.java)
-                            intent.putExtra("person_id", item.id)
+                            intent.putExtra(INTENT_PERSON_ID, item.id)
                             context.startActivity(intent)
                         }
                     }

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.moviesapp.App
-import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
+import com.example.moviesapp.BuildConfig.*
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.PersonDetails
 import com.example.moviesapp.data.repository.NetworkState
@@ -31,7 +31,7 @@ class PersonDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_person_details)
 
-        val personId = intent.getIntExtra("person_id", 1)
+        val personId = intent.getIntExtra(INTENT_PERSON_ID, 1)
 
         viewModel = viewModel(PersonDetailsViewModel::class.java, App.scope())
         viewModel.getPersonDetails(personId).observe(this, Observer { bindUI(it) })
@@ -77,7 +77,7 @@ class PersonDetailsActivity : BaseActivity() {
                         findViewById<TextView>(R.id.item_movie_title).text = item.title
                         setOnClickListener {
                             val intent = Intent(context, SingleMovieActivity::class.java)
-                            intent.putExtra("movie_id", item.id)
+                            intent.putExtra(INTENT_MOVIE_ID, item.id)
                             context.startActivity(intent)
                         }
                     }

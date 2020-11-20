@@ -9,6 +9,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.moviesapp.BuildConfig.INTENT_MOVIE_ID
 import com.example.moviesapp.BuildConfig.POSTER_BASE_URL
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.Movie
@@ -102,7 +103,7 @@ class PopularMoviePagedListAdapter(
 
             itemView.setOnClickListener {
                 val intent = Intent(context, SingleMovieActivity::class.java)
-                intent.putExtra("movie_id", movie?.id)
+                intent.putExtra(INTENT_MOVIE_ID, movie?.id)
                 context.startActivity(intent)
             }
         }

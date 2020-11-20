@@ -30,7 +30,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "INTENT_MOVIE_ID", "\"movie_id\""
+        buildConfigField "String", "INTENT_PERSON_ID", "\"person_id\""
         buildConfigField "String", "POSTER_BASE_URL", "\"https://image.tmdb.org/t/p/w342\""
+        buildConfigField "String", "VIDEO_BASE_URL", "\"https://www.youtube.com/watch?v=\""
     }
 
     buildTypes {
