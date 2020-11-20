@@ -13,7 +13,7 @@ interface TheMovieDBInterface {
     @GET("movie/popular")
     fun getPopularMovie(@Query("page") page: Int): Single<MovieResponse>
 
-    @GET("movie/{movie_id}?append_to_response=credits,release_dates,similar")
+    @GET("movie/{movie_id}?append_to_response=credits,release_dates,similar,videos")
     fun getMovieDetails(@Path("movie_id") id: Int): Single<MovieDetails>
 
     @GET("person/{person_id}?append_to_response=movie_credits")

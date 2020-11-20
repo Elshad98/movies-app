@@ -14,6 +14,7 @@ data class MovieDetails(
     val budget: Int,
     val credits: Credits,
     val similar: Similar,
+    val videos: Videos,
     val genres: List<Genre>,
     val homepage: String,
     val id: Int,
@@ -81,6 +82,23 @@ data class MovieDetails(
         val totalResult: Int,
         val results: List<Movie>
     )
+
+    data class Videos(
+        val results: List<Video>
+    ) {
+        data class Video(
+            val id: String,
+            @SerializedName("iso_639_1")
+            val iso6391: String,
+            @SerializedName("iso_3166_1")
+            val iso31661: String,
+            val key: String,
+            val name: String,
+            val site: String,
+            val size: Int,
+            val type: String
+        )
+    }
 
     data class Credits(
         val cast: List<Cast>,
