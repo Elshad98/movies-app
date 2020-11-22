@@ -60,18 +60,17 @@ class SingleMovieActivity : BaseActivity() {
         }
         setGenres(movieDetails)
         setMovieInfo(movieDetails)
-        cv_iv_movie_poster.setOnClickListener {
-            intent =
-                if (packageManager.getLaunchIntentForPackage("com.google.android.youtube") == null) {
-                    val url = VIDEO_BASE_URL + movieDetails.videos.results[0].key
-                    Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                } else {
-                    Intent(Intent.ACTION_SEARCH).apply {
-                        setPackage("com.google.android.youtube")
-                        putExtra("query", movieDetails.videos.results[0].key)
-                    }
+
+        if (movieDetails.videos.results.isNotEmpty()) {
+            play_icon.visibility = View.VISIBLE
+            play_icon.setOnClickListener {
+                val url = VIDEO_BASE_URL + movieDetails.videos.results[0].key
+                val ytPlay = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                val intent = Intent.createChooser(ytPlay, resources.getText(R.string.open_with))
+                if (ytPlay.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
                 }
-            startActivity(intent)
+            }
         }
         movieDetails.posterPath?.let {
             val poster = POSTER_BASE_URL + it

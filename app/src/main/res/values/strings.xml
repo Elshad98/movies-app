@@ -14,5 +14,7 @@
     <string name="release_date">Release Date:</string>
     <string name="mpaa_rating">MPAA Rating:</string>
     <string name="cast">Cast</string>
+    <string name="play">Play</string>
+    <string name="open_with">Open with</string>
     <string name="similar_movies">Similar movies</string>
 </resources>
