@@ -17,8 +17,8 @@
             android:id="@+id/rv_movie_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="@dimen/main_layout_margin_start"
+            android:layout_marginEnd="@dimen/main_layout_margin_end"
             android:scrollbars="vertical" />
 
     </LinearLayout>

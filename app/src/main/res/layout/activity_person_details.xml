@@ -54,8 +54,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="@dimen/layout_margin_start"
+                        android:layout_marginEnd="@dimen/layout_margin_end"
                         android:orientation="vertical">
 
                         <TextView
@@ -86,7 +86,7 @@
                     android:id="@+id/filmography_person_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="@dimen/layout_margin_start"
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
 
@@ -95,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="40dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="@dimen/layout_margin_end"
                         android:layout_marginBottom="40dp" />
 
                     <TextView
@@ -105,7 +105,7 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/filmography"
                         android:textColor="@color/white"
-                        android:textSize="21sp" />
+                        android:textSize="@dimen/subtitle_text_size" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -125,9 +125,9 @@
                     android:id="@+id/biography_person_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="@dimen/layout_margin_start"
                     android:layout_marginTop="-26px"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="@dimen/layout_margin_end"
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
 
@@ -140,7 +140,7 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/biography"
                         android:textColor="@color/white"
-                        android:textSize="21sp" />
+                        android:textSize="@dimen/subtitle_text_size" />
 
                     <TextView
                         android:id="@+id/biography"

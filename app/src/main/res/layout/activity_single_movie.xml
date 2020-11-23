@@ -64,14 +64,14 @@
                         android:layout_marginBottom="200dp"
                         android:background="@drawable/icon_play"
                         android:contentDescription="@string/play"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="@dimen/layout_margin_start"
+                        android:layout_marginEnd="@dimen/layout_margin_end"
                         android:orientation="vertical">
 
                         <TextView
@@ -97,8 +97,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="@dimen/layout_margin_start"
+                    android:layout_marginEnd="@dimen/layout_margin_end"
                     android:orientation="vertical">
 
                     <include layout="@layout/view_delimiter" />
@@ -285,7 +285,7 @@
                             android:fontFamily="@font/montserrat_medium"
                             android:text="@string/storyline"
                             android:textColor="@color/white"
-                            android:textSize="21sp" />
+                            android:textSize="@dimen/subtitle_text_size" />
 
                         <TextView
                             android:id="@+id/storyline"
@@ -302,7 +302,7 @@
                     android:id="@+id/cast_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="@dimen/layout_margin_start"
                     android:layout_marginTop="-26dp"
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
@@ -312,7 +312,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="40dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="@dimen/layout_margin_end"
                         android:layout_marginBottom="40dp" />
 
                     <TextView
@@ -322,7 +322,7 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/cast"
                         android:textColor="@color/white"
-                        android:textSize="21sp" />
+                        android:textSize="@dimen/subtitle_text_size" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -342,7 +342,7 @@
                     android:id="@+id/similar_movies_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="@dimen/layout_margin_start"
                     android:layout_marginTop="-26dp"
                     android:layout_marginBottom="26dp"
                     android:orientation="vertical">
@@ -352,7 +352,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="40dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginEnd="@dimen/layout_margin_end"
                         android:layout_marginBottom="40dp" />
 
                     <TextView
@@ -362,7 +362,7 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/similar_movies"
                         android:textColor="@color/white"
-                        android:textSize="21sp" />
+                        android:textSize="@dimen/subtitle_text_size" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
