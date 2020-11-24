@@ -27,12 +27,12 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="400dp">
+                    android:layout_height="@dimen/layout_height">
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:id="@+id/iv_movie_poster"
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="@dimen/layout_height"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_gravity="center"
@@ -44,7 +44,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="@dimen/layout_height"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/image_gradient"
@@ -83,7 +83,7 @@
                             android:fontFamily="@font/montserrat_regular"
                             android:text="@string/title"
                             android:textColor="@color/white"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/title_text_size" />
 
                         <com.google.android.flexbox.FlexboxLayout
                             android:id="@+id/genres"

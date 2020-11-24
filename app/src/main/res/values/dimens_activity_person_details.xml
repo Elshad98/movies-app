@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="person_details_birth_margin_top">12dp</dimen>
+    <dimen name="person_details_birth_text_title">16sp</dimen>
+    <dimen name="person_details_biography_text_title">16sp</dimen>
+    <dimen name="person_details_layout_margin_bottom">26dp</dimen>
+    <dimen name="person_details_subtitle_margin_bottom">18dp</dimen>
+    <dimen name="person_details_birth_line_spacing_extra">4dp</dimen>
+    <dimen name="person_details_biography_layout_margin_top">-26dp</dimen>
+    <dimen name="person_details_biography_line_spacing_extra">5dp</dimen>
+</resources>
