@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_actor_layout_width">112dp</dimen>
+    <dimen name="list_item_actor_layout_margin_end">22dp</dimen>
+    <dimen name="list_item_actor_image_width">112dp</dimen>
+    <dimen name="list_item_actor_image_height">112dp</dimen>
+    <dimen name="list_item_actor_title_text_size">16sp</dimen>
+    <dimen name="list_item_actor_title_margin_top">6dp</dimen>
+    <dimen name="list_item_actor_title_line_spacing_extra">2dp</dimen>
+</resources>
