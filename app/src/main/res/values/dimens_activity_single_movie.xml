@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="single_movie_icon_width">80dp</dimen>
+    <dimen name="single_movie_icon_height">80dp</dimen>
+    <dimen name="single_movie_icon_margin_top">120dp</dimen>
+    <dimen name="single_movie_icon_margin_start">166dp</dimen>
+    <dimen name="single_movie_icon_margin_end">165dp</dimen>
+    <dimen name="single_movie_icon_margin_bottom">200dp</dimen>
+    <dimen name="single_movie_poster_width">112dp</dimen>
+    <dimen name="single_movie_poster_height">180dp</dimen>
+    <dimen name="single_movie_label_text_size">16sp</dimen>
+    <dimen name="single_movie_label_margin_start">4dp</dimen>
+    <dimen name="single_movie_layout_label_margin_top">4dp</dimen>
+    <dimen name="single_movie_layout_informing_margin_top">25dp</dimen>
+    <dimen name="single_movie_subtitle_margin_bottom">18dp</dimen>
+    <dimen name="single_movie_title_margin_bottom">8dp</dimen>
+    <dimen name="single_movie_layout_margin_bottom">26dp</dimen>
+    <dimen name="single_movie_layout_margin_top">-26dp</dimen>
+    <dimen name="single_movie_storyline_text_size">16sp</dimen>
+    <dimen name="single_movie_storyline_line_spacing_extra">5dp</dimen>
+</resources>
