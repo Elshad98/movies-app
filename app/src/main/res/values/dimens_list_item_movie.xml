@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_movie_layout_width">112dp</dimen>
+    <dimen name="list_item_movie_layout_margin_end">22dp</dimen>
+    <dimen name="list_item_movie_poster_height">180dp</dimen>
+    <dimen name="list_item_movie_title_margin_start">4dp</dimen>
+    <dimen name="list_item_movie_title_margin_top">6dp</dimen>
+    <dimen name="list_item_movie_title_text_size">16sp</dimen>
+</resources>

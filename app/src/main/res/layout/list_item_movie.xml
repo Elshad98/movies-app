@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="112dp"
+    android:layout_width="@dimen/list_item_movie_layout_width"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="22dp"
+    android:layout_marginEnd="@dimen/list_item_movie_layout_margin_end"
     android:orientation="vertical">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/item_movie_poster"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="@dimen/list_item_movie_poster_height"
         android:background="@color/grey_charcoal"
         android:scaleType="centerCrop"
         app:riv_border_width="0dp"
@@ -21,11 +21,11 @@
         android:id="@+id/item_movie_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="@dimen/list_item_movie_title_margin_start"
+        android:layout_marginTop="@dimen/list_item_movie_title_margin_top"
         android:ellipsize="end"
         android:fontFamily="@font/montserrat_medium"
         android:maxLines="2"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="@dimen/list_item_movie_title_text_size" />
 </LinearLayout>
