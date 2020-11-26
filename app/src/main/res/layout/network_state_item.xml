@@ -3,20 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="@dimen/network_state_item_layout_padding">
 
     <TextView
         android:id="@+id/error_msg_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="@dimen/network_state_item_title_margin_start"
+        android:layout_marginTop="@dimen/network_state_item_title_margin_top"
+        android:layout_marginEnd="@dimen/network_state_item_title_margin_end"
+        android:layout_marginBottom="@dimen/network_state_item_title_margin_bottom"
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="@dimen/network_state_item_title_text_size" />
 
     <ProgressBar
         android:id="@+id/progress_bar_item"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="network_state_item_layout_padding">8dp</dimen>
+    <dimen name="network_state_item_title_text_size">16sp</dimen>
+    <dimen name="network_state_item_title_margin_top">4dp</dimen>
+    <dimen name="network_state_item_title_margin_bottom">4dp</dimen>
+    <dimen name="network_state_item_title_margin_start">16dp</dimen>
+    <dimen name="network_state_item_title_margin_end">16dp</dimen>
+</resources>
