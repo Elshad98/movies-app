@@ -309,10 +309,10 @@
                     <include
                         layout="@layout/view_delimiter"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_height="@dimen/view_delimiter_layout_height"
+                        android:layout_marginTop="@dimen/view_delimiter_layout_margin_top"
                         android:layout_marginEnd="@dimen/layout_margin_end"
-                        android:layout_marginBottom="40dp" />
+                        android:layout_marginBottom="@dimen/view_delimiter_layout_margin_bottom" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -349,10 +349,10 @@
                     <include
                         layout="@layout/view_delimiter"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_height="@dimen/view_delimiter_layout_height"
+                        android:layout_marginTop="@dimen/view_delimiter_layout_margin_top"
                         android:layout_marginEnd="@dimen/layout_margin_end"
-                        android:layout_marginBottom="40dp" />
+                        android:layout_marginBottom="@dimen/view_delimiter_layout_margin_bottom" />
 
                     <TextView
                         android:layout_width="wrap_content"
