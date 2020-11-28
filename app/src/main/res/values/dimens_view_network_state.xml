@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_network_state_title_text_size">30sp</dimen>
+    <dimen name="view_network_state_title_margin_start">16dp</dimen>
+    <dimen name="view_network_state_title_margin_end">16dp</dimen>
+</resources>

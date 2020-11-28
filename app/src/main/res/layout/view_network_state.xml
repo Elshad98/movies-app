@@ -13,12 +13,12 @@
         android:id="@+id/error_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="@dimen/view_network_state_title_margin_start"
+        android:layout_marginEnd="@dimen/view_network_state_title_margin_end"
         android:fontFamily="@font/montserrat_regular"
         android:gravity="center"
         android:text="@string/connection_problem"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="@dimen/view_network_state_title_text_size"
         android:visibility="gone" />
 </merge>
