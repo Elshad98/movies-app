@@ -8,12 +8,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.example.moviesapp.App
 import com.example.moviesapp.BuildConfig.*
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.MovieDetails
 import com.example.moviesapp.data.repository.NetworkState
+import com.example.moviesapp.module.GlideApp
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.personDetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
@@ -74,8 +74,8 @@ class SingleMovieActivity : BaseActivity() {
         }
         movieDetails.posterPath?.let {
             val poster = POSTER_BASE_URL + it
-            Glide.with(this).load(poster).into(iv_movie_poster)
-            Glide.with(this).load(poster).into(cv_iv_movie_poster)
+            GlideApp.with(this).load(poster).into(iv_movie_poster)
+            GlideApp.with(this).load(poster).into(cv_iv_movie_poster)
         }
     }
 
@@ -110,7 +110,7 @@ class SingleMovieActivity : BaseActivity() {
                     inflater.inflate(R.layout.list_item_movie, similar_movies, false).apply {
                         item.posterPath?.let {
                             val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
-                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
+                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
                         }
                         findViewById<TextView>(R.id.item_movie_title).text = item.title
                         this.setOnClickListener {
@@ -133,7 +133,7 @@ class SingleMovieActivity : BaseActivity() {
                     inflater.inflate(R.layout.list_item_actor, cast, false).apply {
                         item.profilePath?.let {
                             val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
-                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMovieActor)
+                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMovieActor)
                         }
                         findViewById<TextView>(R.id.actor_name).text = item.name
                         this.setOnClickListener {

@@ -39,7 +39,7 @@ class MovieDataSource(
                     },
                     { throwable ->
                         networkState.postValue(NetworkState.ERROR)
-                        Log.e(TAG, throwable.message)
+                        throwable.message?.let { Log.e(TAG, it) }
                     }
                 )
         )
@@ -65,7 +65,7 @@ class MovieDataSource(
                     },
                     { throwable ->
                         networkState.postValue(NetworkState.ERROR)
-                        Log.e(TAG, throwable.message)
+                        throwable.message?.let { Log.e(TAG, it) }
                     }
                 )
         )

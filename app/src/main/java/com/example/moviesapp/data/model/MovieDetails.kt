@@ -62,7 +62,9 @@ data class MovieDetails(
         get() {
             val hour = runtime / 60
             val min = runtime % 60
-            return "${hour}h ${if (min > 9) min else "0$min"}min"
+            val h = if (hour > 0) "${hour}h " else ""
+            val m = if (min > 9) "${min}min" else "0${min}min"
+            return "$h$m"
         }
 
     data class BelongsToCollection(

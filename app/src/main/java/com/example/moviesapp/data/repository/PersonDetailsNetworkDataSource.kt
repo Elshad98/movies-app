@@ -40,12 +40,12 @@ class PersonDetailsNetworkDataSource(
                         },
                         { throwable ->
                             _networkState.postValue(NetworkState.ERROR)
-                            Log.e(TAG, throwable.message)
+                            throwable.message?.let { Log.e(TAG, it) }
                         }
                     )
             )
         } catch (exc: Exception) {
-            Log.e(TAG, exc.message)
+            exc.message?.let { Log.e(TAG, it) }
         }
     }
 }

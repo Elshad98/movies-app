@@ -7,12 +7,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.example.moviesapp.App
 import com.example.moviesapp.BuildConfig.*
 import com.example.moviesapp.R
 import com.example.moviesapp.data.model.PersonDetails
 import com.example.moviesapp.data.repository.NetworkState
+import com.example.moviesapp.module.GlideApp
 import com.example.moviesapp.ui.base.BaseActivity
 import com.example.moviesapp.ui.moviedetails.SingleMovieActivity
 import kotlinx.android.synthetic.main.activity_person_details.*
@@ -59,7 +59,7 @@ class PersonDetailsActivity : BaseActivity() {
             setFilmography(personDetails)
         }
         personDetails.profilePath?.let {
-            Glide.with(this).load(POSTER_BASE_URL + it).into(iv_person_image)
+            GlideApp.with(this).load(POSTER_BASE_URL + it).into(iv_person_image)
         }
     }
 
@@ -72,7 +72,7 @@ class PersonDetailsActivity : BaseActivity() {
                     inflater.inflate(R.layout.list_item_movie, filmography, false).apply {
                         item.posterPath?.let {
                             val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
-                            Glide.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
+                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
                         }
                         findViewById<TextView>(R.id.item_movie_title).text = item.title
                         setOnClickListener {
