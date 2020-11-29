@@ -3,7 +3,7 @@
     <dimen name="movie_list_item_card_view_margin_top">20dp</dimen>
     <dimen name="movie_list_item_card_view_margin_end">11dp</dimen>
     <dimen name="movie_list_item_card_view_margin_start">11dp</dimen>
-    <dimen name="movie_list_item_poster_height">180dp</dimen>
+    <dimen name="movie_list_item_poster_height">175dp</dimen>
     <dimen name="movie_list_item_title_text_size">16sp</dimen>
     <dimen name="movie_list_item_title_margin_top">6dp</dimen>
     <dimen name="movie_list_item_title_margin_start">4dp</dimen>

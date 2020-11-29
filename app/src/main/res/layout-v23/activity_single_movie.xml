@@ -51,6 +51,9 @@
                         android:orientation="horizontal" />
 
                     <ImageView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?selectableItemBackground"
                         android:id="@+id/play_icon"
                         android:layout_width="@dimen/single_movie_icon_width"
                         android:layout_height="@dimen/single_movie_icon_height"
@@ -59,7 +62,7 @@
                         android:layout_marginTop="@dimen/single_movie_icon_margin_top"
                         android:background="@drawable/icon_play"
                         android:contentDescription="@string/play"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
