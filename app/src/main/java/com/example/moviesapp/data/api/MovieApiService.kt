@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface TheMovieDBInterface {
+interface MovieApiService {
 
     @GET("movie/popular")
     fun getPopularMovie(@Query("page") page: Int): Single<MovieResponse>

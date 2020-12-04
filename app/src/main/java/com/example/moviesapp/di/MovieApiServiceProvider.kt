@@ -1,5 +1,6 @@
-package com.example.moviesapp.data.api
+package com.example.moviesapp.di
 
+import com.example.moviesapp.data.api.MovieApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -7,8 +8,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import javax.inject.Provider
 
-class TheMovieDBClient @Inject constructor() {
+class MovieApiServiceProvider @Inject constructor() : Provider<MovieApiService> {
 
     companion object {
 
@@ -17,7 +19,7 @@ class TheMovieDBClient @Inject constructor() {
         private const val API_KEY = "537617866b341480a7bea2f1a8a6c42f"
     }
 
-    fun getClient(): TheMovieDBInterface {
+    override fun get(): MovieApiService {
         val requestInterceptor = Interceptor { chain ->
 
             val url = chain.request()
@@ -45,6 +47,6 @@ class TheMovieDBClient @Inject constructor() {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(TheMovieDBInterface::class.java)
+            .create(MovieApiService::class.java)
     }
 }

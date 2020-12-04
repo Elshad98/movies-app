@@ -1,16 +1,17 @@
 package com.example.moviesapp.ui.moviedetails
 
 import androidx.lifecycle.LiveData
-import com.example.moviesapp.data.api.TheMovieDBClient
+import com.example.moviesapp.data.api.MovieApiService
+import com.example.moviesapp.data.model.MovieDetails
 import com.example.moviesapp.data.repository.MovieDetailsNetworkDataSource
 import com.example.moviesapp.data.repository.NetworkState
-import com.example.moviesapp.data.model.MovieDetails
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class MovieDetailsRepository @Inject constructor(theMovieDBClient: TheMovieDBClient) {
+class MovieDetailsRepository @Inject constructor(
+    private val movieApiService: MovieApiService
+) {
 
-    private val apiService = theMovieDBClient.getClient()
     lateinit var movieDetailsNetworkDataSource: MovieDetailsNetworkDataSource
 
     fun fetchSingleMovieDetails(
@@ -18,7 +19,7 @@ class MovieDetailsRepository @Inject constructor(theMovieDBClient: TheMovieDBCli
         movieId: Int
     ): LiveData<MovieDetails> {
         movieDetailsNetworkDataSource =
-            MovieDetailsNetworkDataSource(apiService, compositeDisposable)
+            MovieDetailsNetworkDataSource(movieApiService, compositeDisposable)
         movieDetailsNetworkDataSource.fetchMovieDetails(movieId)
 
         return movieDetailsNetworkDataSource.downloadedMovieDetailsResponse

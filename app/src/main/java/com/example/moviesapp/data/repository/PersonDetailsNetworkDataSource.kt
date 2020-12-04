@@ -3,13 +3,13 @@ package com.example.moviesapp.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.moviesapp.data.api.TheMovieDBInterface
+import com.example.moviesapp.data.api.MovieApiService
 import com.example.moviesapp.data.model.PersonDetails
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class PersonDetailsNetworkDataSource(
-    private val apiService: TheMovieDBInterface,
+    private val movieApiService: MovieApiService,
     private val compositeDisposable: CompositeDisposable
 ) {
 
@@ -31,7 +31,7 @@ class PersonDetailsNetworkDataSource(
 
         try {
             compositeDisposable.add(
-                apiService.getPersonDetails(personId)
+                movieApiService.getPersonDetails(personId)
                     .subscribeOn(Schedulers.io())
                     .subscribe(
                         { personDetails ->

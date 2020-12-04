@@ -3,13 +3,13 @@ package com.example.moviesapp.data.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.example.moviesapp.data.api.TheMovieDBInterface
+import com.example.moviesapp.data.api.MovieApiService
 import com.example.moviesapp.data.model.Movie
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class MovieDataSource(
-    private val apiService: TheMovieDBInterface,
+    private val movieApiService: MovieApiService,
     private val compositeDisposable: CompositeDisposable
 ) : PageKeyedDataSource<Int, Movie>() {
 
@@ -30,7 +30,7 @@ class MovieDataSource(
         networkState.postValue(NetworkState.LOADING)
 
         compositeDisposable.add(
-            apiService.getPopularMovie(page)
+            movieApiService.getPopularMovie(page)
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                     { movieResponse ->
@@ -52,7 +52,7 @@ class MovieDataSource(
         networkState.postValue(NetworkState.LOADING)
 
         compositeDisposable.add(
-            apiService.getPopularMovie(params.key)
+            movieApiService.getPopularMovie(params.key)
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                     { movieResponse ->
