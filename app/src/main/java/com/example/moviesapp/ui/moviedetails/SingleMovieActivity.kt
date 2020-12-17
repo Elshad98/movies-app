@@ -24,7 +24,7 @@ class SingleMovieActivity : BaseActivity() {
     companion object {
 
         private const val TAG = "SingleMovieActivity"
-        private const val MAX_SIZE_CAST = 15
+        private const val MAX_NUMBER_ITEM = 15
     }
 
     private lateinit var viewModel: SingleMovieViewModel
@@ -103,47 +103,43 @@ class SingleMovieActivity : BaseActivity() {
 
     private fun setSimilarMovies(movieDetails: MovieDetails) {
         val inflater = LayoutInflater.from(similar_movies.context)
-        run loop@{
-            movieDetails.similar.results.forEachIndexed { index, item ->
-                if (index == MAX_SIZE_CAST) return@loop
-                similar_movies.addView(
-                    inflater.inflate(R.layout.list_item_movie, similar_movies, false).apply {
-                        item.posterPath?.let {
-                            val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
-                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
-                        }
-                        findViewById<TextView>(R.id.item_movie_title).text = item.title
-                        this.setOnClickListener {
-                            val intent = Intent(context, SingleMovieActivity::class.java)
-                            intent.putExtra(INTENT_MOVIE_ID, item.id)
-                            context.startActivity(intent)
-                        }
+        for ((index, item) in movieDetails.similar.results.withIndex()) {
+            if (index == MAX_NUMBER_ITEM) break
+            similar_movies.addView(
+                inflater.inflate(R.layout.list_item_movie, similar_movies, false).apply {
+                    item.posterPath?.let { path ->
+                        val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
+                        GlideApp.with(this).load(POSTER_BASE_URL + path).into(ivMoviePoster)
                     }
-                )
-            }
+                    findViewById<TextView>(R.id.item_movie_title).text = item.title
+                    this.setOnClickListener {
+                        val intent = Intent(context, SingleMovieActivity::class.java)
+                        intent.putExtra(INTENT_MOVIE_ID, item.id)
+                        startActivity(intent)
+                    }
+                }
+            )
         }
     }
 
     private fun setCast(movieDetails: MovieDetails) {
         val inflater = LayoutInflater.from(cast.context)
-        run loop@{
-            movieDetails.credits.cast.forEachIndexed { index, item ->
-                if (index == MAX_SIZE_CAST) return@loop
-                cast.addView(
-                    inflater.inflate(R.layout.list_item_actor, cast, false).apply {
-                        item.profilePath?.let {
-                            val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
-                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMovieActor)
-                        }
-                        findViewById<TextView>(R.id.actor_name).text = item.name
-                        this.setOnClickListener {
-                            val intent = Intent(context, PersonDetailsActivity::class.java)
-                            intent.putExtra(INTENT_PERSON_ID, item.id)
-                            context.startActivity(intent)
-                        }
+        for ((index, item) in movieDetails.credits.cast.withIndex()) {
+            if (index == MAX_NUMBER_ITEM) break
+            cast.addView(
+                inflater.inflate(R.layout.list_item_actor, cast, false).apply {
+                    item.profilePath?.let { path ->
+                        val ivMovieActor = findViewById<ImageView>(R.id.iv_movie_actor)
+                        GlideApp.with(this).load(POSTER_BASE_URL + path).into(ivMovieActor)
                     }
-                )
-            }
+                    findViewById<TextView>(R.id.actor_name).text = item.name
+                    this.setOnClickListener {
+                        val intent = Intent(context, PersonDetailsActivity::class.java)
+                        intent.putExtra(INTENT_PERSON_ID, item.id)
+                        startActivity(intent)
+                    }
+                }
+            )
         }
     }
 }
