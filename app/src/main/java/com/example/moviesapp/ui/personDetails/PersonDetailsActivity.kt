@@ -22,7 +22,7 @@ class PersonDetailsActivity : BaseActivity() {
 
     companion object {
 
-        private const val MAX_SIZE_CAST = 15
+        private const val MAX_NUMBER_ITEM = 15
     }
 
     private lateinit var viewModel: PersonDetailsViewModel
@@ -65,24 +65,22 @@ class PersonDetailsActivity : BaseActivity() {
 
     private fun setFilmography(personDetails: PersonDetails) {
         val inflater = LayoutInflater.from(filmography.context)
-        run loop@{
-            personDetails.movieCredits.cast.forEachIndexed { index, item ->
-                if (index == MAX_SIZE_CAST) return@loop
-                filmography.addView(
-                    inflater.inflate(R.layout.list_item_movie, filmography, false).apply {
-                        item.posterPath?.let {
-                            val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
-                            GlideApp.with(this).load(POSTER_BASE_URL + it).into(ivMoviePoster)
-                        }
-                        findViewById<TextView>(R.id.item_movie_title).text = item.title
-                        setOnClickListener {
-                            val intent = Intent(context, SingleMovieActivity::class.java)
-                            intent.putExtra(INTENT_MOVIE_ID, item.id)
-                            context.startActivity(intent)
-                        }
+        for ((index, item) in personDetails.movieCredits.cast.withIndex()) {
+            if (index == MAX_NUMBER_ITEM) break
+            filmography.addView(
+                inflater.inflate(R.layout.list_item_movie, filmography, false).apply {
+                    item.posterPath?.let { path ->
+                        val ivMoviePoster = findViewById<ImageView>(R.id.item_movie_poster)
+                        GlideApp.with(this).load(POSTER_BASE_URL + path).into(ivMoviePoster)
                     }
-                )
-            }
+                    findViewById<TextView>(R.id.item_movie_title).text = item.title
+                    setOnClickListener {
+                        val intent = Intent(context, SingleMovieActivity::class.java)
+                        intent.putExtra(INTENT_MOVIE_ID, item.id)
+                        startActivity(intent)
+                    }
+                }
+            )
         }
     }
 }
