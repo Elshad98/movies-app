@@ -1,4 +1,4 @@
-package com.example.moviesapp.ui.personDetails
+package com.example.moviesapp.ui.persondetails
 
 import android.content.Intent
 import android.os.Bundle

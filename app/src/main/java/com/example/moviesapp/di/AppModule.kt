@@ -2,7 +2,7 @@ package com.example.moviesapp.di
 
 import com.example.moviesapp.data.api.MovieApiService
 import com.example.moviesapp.ui.moviedetails.MovieDetailsRepository
-import com.example.moviesapp.ui.personDetails.PersonDetailsRepository
+import com.example.moviesapp.ui.persondetails.PersonDetailsRepository
 import com.example.moviesapp.ui.popularmovie.MoviePagedListRepository
 import toothpick.config.Module
 

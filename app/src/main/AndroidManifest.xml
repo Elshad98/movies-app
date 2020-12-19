@@ -17,7 +17,7 @@
         android:theme="@style/Theme.MoviesApp.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.moviedetails.SingleMovieActivity" />
-        <activity android:name=".ui.personDetails.PersonDetailsActivity" />
+        <activity android:name=".ui.persondetails.PersonDetailsActivity" />
         <activity
             android:name=".ui.popularmovie.MainActivity"
             android:theme="@style/Theme.MoviesApp">

@@ -15,7 +15,7 @@ import com.example.moviesapp.data.model.MovieDetails
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.module.GlideApp
 import com.example.moviesapp.ui.base.BaseActivity
-import com.example.moviesapp.ui.personDetails.PersonDetailsActivity
+import com.example.moviesapp.ui.persondetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import kotlinx.android.synthetic.main.view_network_state.*
 
