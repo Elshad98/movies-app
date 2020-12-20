@@ -7,7 +7,7 @@ import com.example.moviesapp.data.model.MovieDetails
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class SingleMovieViewModel @Inject constructor(
+class MovieDetailsViewModel @Inject constructor(
     private val movieRepository: MovieDetailsRepository
 ) : ViewModel() {
 

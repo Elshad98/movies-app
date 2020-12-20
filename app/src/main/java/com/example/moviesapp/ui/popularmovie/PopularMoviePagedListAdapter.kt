@@ -14,7 +14,7 @@ import com.example.moviesapp.R
 import com.example.moviesapp.data.model.Movie
 import com.example.moviesapp.data.repository.NetworkState
 import com.example.moviesapp.module.GlideApp
-import com.example.moviesapp.ui.moviedetails.SingleMovieActivity
+import com.example.moviesapp.ui.moviedetails.MovieDetailsActivity
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*
 
@@ -96,13 +96,13 @@ class PopularMoviePagedListAdapter(
         fun bind(movie: Movie?, context: Context) {
             itemView.cv_movie_title.text = movie?.title
 
-            movie?.posterPath?.let {
-                GlideApp.with(itemView.context).load(POSTER_BASE_URL + it)
+            movie?.posterPath?.let { path ->
+                GlideApp.with(itemView.context).load(POSTER_BASE_URL + path)
                     .into(itemView.cv_iv_movie_poster)
             }
 
             itemView.setOnClickListener {
-                val intent = Intent(context, SingleMovieActivity::class.java)
+                val intent = Intent(context, MovieDetailsActivity::class.java)
                 intent.putExtra(INTENT_MOVIE_ID, movie?.id)
                 context.startActivity(intent)
             }

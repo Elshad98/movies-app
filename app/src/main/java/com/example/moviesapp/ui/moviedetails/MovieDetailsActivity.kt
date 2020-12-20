@@ -19,15 +19,9 @@ import com.example.moviesapp.ui.persondetails.PersonDetailsActivity
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import kotlinx.android.synthetic.main.view_network_state.*
 
-class SingleMovieActivity : BaseActivity() {
+class MovieDetailsActivity : BaseActivity() {
 
-    companion object {
-
-        private const val TAG = "SingleMovieActivity"
-        private const val MAX_NUMBER_ITEM = 15
-    }
-
-    private lateinit var viewModel: SingleMovieViewModel
+    private lateinit var viewModel: MovieDetailsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +29,7 @@ class SingleMovieActivity : BaseActivity() {
 
         val movieId: Int = intent.getIntExtra(INTENT_MOVIE_ID, 1)
 
-        viewModel = viewModel(SingleMovieViewModel::class.java, App.scope())
+        viewModel = viewModel(MovieDetailsViewModel::class.java, App.scope())
         viewModel.getMovieDetails(movieId).observe(this, Observer { bindUI(it) })
         viewModel.getNetworkState().observe(this, stateObserve)
     }
@@ -67,13 +61,13 @@ class SingleMovieActivity : BaseActivity() {
                 val url = VIDEO_BASE_URL + movieDetails.videos.results[0].key
                 val ytPlay = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 val intent = Intent.createChooser(ytPlay, resources.getText(R.string.open_with))
-                if (ytPlay.resolveActivity(packageManager) != null) {
+                ytPlay.resolveActivity(packageManager)?.let {
                     startActivity(intent)
                 }
             }
         }
-        movieDetails.posterPath?.let {
-            val poster = POSTER_BASE_URL + it
+        movieDetails.posterPath?.let { path ->
+            val poster = POSTER_BASE_URL + path
             GlideApp.with(this).load(poster).into(iv_movie_poster)
             GlideApp.with(this).load(poster).into(cv_iv_movie_poster)
         }
@@ -113,7 +107,7 @@ class SingleMovieActivity : BaseActivity() {
                     }
                     findViewById<TextView>(R.id.item_movie_title).text = item.title
                     this.setOnClickListener {
-                        val intent = Intent(context, SingleMovieActivity::class.java)
+                        val intent = Intent(context, MovieDetailsActivity::class.java)
                         intent.putExtra(INTENT_MOVIE_ID, item.id)
                         startActivity(intent)
                     }
