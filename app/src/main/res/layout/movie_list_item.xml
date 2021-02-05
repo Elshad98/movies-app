@@ -4,9 +4,9 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/movie_list_item_card_view_margin_start"
     android:layout_marginTop="@dimen/movie_list_item_card_view_margin_top"
     android:layout_marginEnd="@dimen/movie_list_item_card_view_margin_end"
-    android:layout_marginStart="@dimen/movie_list_item_card_view_margin_start"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
@@ -32,14 +32,10 @@
 
         <TextView
             android:id="@+id/cv_movie_title"
+            style="@style/ContentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/movie_list_item_title_margin_start"
-            android:layout_marginTop="@dimen/movie_list_item_title_margin_top"
-            android:ellipsize="end"
-            android:fontFamily="@font/montserrat_medium"
-            android:maxLines="2"
-            android:textColor="@color/white"
-            android:textSize="@dimen/movie_list_item_title_text_size" />
+            android:layout_marginTop="@dimen/movie_list_item_title_margin_top" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

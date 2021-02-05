@@ -22,13 +22,9 @@
 
     <TextView
         android:id="@+id/actor_name"
+        style="@style/ContentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_item_actor_title_margin_top"
-        android:ellipsize="end"
-        android:fontFamily="@font/montserrat_medium"
-        android:lineSpacingExtra="@dimen/list_item_actor_title_line_spacing_extra"
-        android:maxLines="2"
-        android:textColor="@color/white"
-        android:textSize="@dimen/list_item_actor_title_text_size" />
+        android:lineSpacingExtra="@dimen/list_item_actor_title_line_spacing_extra" />
 </LinearLayout>

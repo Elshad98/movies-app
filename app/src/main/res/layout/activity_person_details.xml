@@ -60,12 +60,10 @@
 
                         <TextView
                             android:id="@+id/person_name"
+                            style="@style/Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="@string/name"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/title_text_size" />
+                            android:text="@string/name" />
 
                         <TextView
                             android:id="@+id/date_of_birth"
@@ -97,13 +95,11 @@
                         android:layout_marginBottom="@dimen/view_delimiter_layout_margin_bottom" />
 
                     <TextView
+                        style="@style/Subtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/person_details_subtitle_margin_bottom"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="@string/filmography"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/subtitle_text_size" />
+                        android:text="@string/filmography" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -132,13 +128,11 @@
                     <include layout="@layout/view_delimiter" />
 
                     <TextView
+                        style="@style/Subtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/person_details_subtitle_margin_bottom"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="@string/biography"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/subtitle_text_size" />
+                        android:text="@string/biography" />
 
                     <TextView
                         android:id="@+id/biography"

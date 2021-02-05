@@ -71,13 +71,11 @@
 
                         <TextView
                             android:id="@+id/movie_title"
+                            style="@style/Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/single_movie_title_margin_bottom"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="@string/title"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/title_text_size" />
+                            android:text="@string/title" />
 
                         <com.google.android.flexbox.FlexboxLayout
                             android:id="@+id/genres"
@@ -273,13 +271,11 @@
                         <include layout="@layout/view_delimiter" />
 
                         <TextView
+                            style="@style/Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/single_movie_subtitle_margin_bottom"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/storyline"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/subtitle_text_size" />
+                            android:text="@string/storyline" />
 
                         <TextView
                             android:id="@+id/storyline"
@@ -310,13 +306,11 @@
                         android:layout_marginBottom="@dimen/view_delimiter_layout_margin_bottom" />
 
                     <TextView
+                        style="@style/Subtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/single_movie_subtitle_margin_bottom"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="@string/cast"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/subtitle_text_size" />
+                        android:text="@string/cast" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -350,13 +344,11 @@
                         android:layout_marginBottom="@dimen/view_delimiter_layout_margin_bottom" />
 
                     <TextView
+                        style="@style/Subtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/single_movie_subtitle_margin_bottom"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="@string/similar_movies"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/subtitle_text_size" />
+                        android:text="@string/similar_movies" />
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
